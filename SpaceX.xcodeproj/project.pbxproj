@@ -11,6 +11,15 @@
 		1146A0F12A856CE6008D7043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A0F02A856CE6008D7043 /* ContentView.swift */; };
 		1146A0F32A856CE7008D7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1146A0F22A856CE7008D7043 /* Assets.xcassets */; };
 		1146A0F72A856CE7008D7043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1146A0F62A856CE7008D7043 /* Preview Assets.xcassets */; };
+		1146A0FF2A856EA1008D7043 /* Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A0FE2A856EA1008D7043 /* Hosts.swift */; };
+		1146A1012A856EF3008D7043 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1002A856EF3008D7043 /* Endpoints.swift */; };
+		1146A1052A8571A5008D7043 /* LaunchLibraryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1042A8571A5008D7043 /* LaunchLibraryClient.swift */; };
+		1146A1082A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1072A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift */; };
+		1146A10C2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A10B2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift */; };
+		1146A10E2A8573F9008D7043 /* ArticleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A10D2A8573F9008D7043 /* ArticleResponse.swift */; };
+		1146A1102A858194008D7043 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A10F2A858194008D7043 /* NetworkError.swift */; };
+		1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1112A85823F008D7043 /* LaunchResponse.swift */; };
+		1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1132A859627008D7043 /* HTTPDataDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,15 @@
 		1146A0F22A856CE7008D7043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1146A0F42A856CE7008D7043 /* SpaceX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpaceX.entitlements; sourceTree = "<group>"; };
 		1146A0F62A856CE7008D7043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1146A0FE2A856EA1008D7043 /* Hosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hosts.swift; sourceTree = "<group>"; };
+		1146A1002A856EF3008D7043 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		1146A1042A8571A5008D7043 /* LaunchLibraryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLibraryClient.swift; sourceTree = "<group>"; };
+		1146A1072A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLibraryPaginatedResponse.swift; sourceTree = "<group>"; };
+		1146A10B2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsPaginatedResponse.swift; sourceTree = "<group>"; };
+		1146A10D2A8573F9008D7043 /* ArticleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResponse.swift; sourceTree = "<group>"; };
+		1146A10F2A858194008D7043 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		1146A1112A85823F008D7043 /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
+		1146A1132A859627008D7043 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +70,7 @@
 		1146A0ED2A856CE6008D7043 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				1146A0FD2A856E26008D7043 /* Network */,
 				1146A0EE2A856CE6008D7043 /* SpaceXApp.swift */,
 				1146A0F02A856CE6008D7043 /* ContentView.swift */,
 				1146A0F22A856CE7008D7043 /* Assets.xcassets */,
@@ -67,6 +86,62 @@
 				1146A0F62A856CE7008D7043 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1146A0FD2A856E26008D7043 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1146A1062A8571F4008D7043 /* DTO */,
+				1146A1032A857184008D7043 /* Clients */,
+				1146A1022A856F84008D7043 /* Constants */,
+				1146A10F2A858194008D7043 /* NetworkError.swift */,
+				1146A1132A859627008D7043 /* HTTPDataDownloader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1146A1022A856F84008D7043 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1146A0FE2A856EA1008D7043 /* Hosts.swift */,
+				1146A1002A856EF3008D7043 /* Endpoints.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1146A1032A857184008D7043 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				1146A1042A8571A5008D7043 /* LaunchLibraryClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		1146A1062A8571F4008D7043 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				1146A10A2A857351008D7043 /* SpaceflightNews */,
+				1146A1092A857348008D7043 /* LaunchLibrary */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		1146A1092A857348008D7043 /* LaunchLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1146A1072A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift */,
+				1146A1112A85823F008D7043 /* LaunchResponse.swift */,
+			);
+			path = LaunchLibrary;
+			sourceTree = "<group>";
+		};
+		1146A10A2A857351008D7043 /* SpaceflightNews */ = {
+			isa = PBXGroup;
+			children = (
+				1146A10B2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift */,
+				1146A10D2A8573F9008D7043 /* ArticleResponse.swift */,
+			);
+			path = SpaceflightNews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +214,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1146A10C2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift in Sources */,
+				1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */,
+				1146A0FF2A856EA1008D7043 /* Hosts.swift in Sources */,
 				1146A0F12A856CE6008D7043 /* ContentView.swift in Sources */,
+				1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */,
+				1146A10E2A8573F9008D7043 /* ArticleResponse.swift in Sources */,
+				1146A1012A856EF3008D7043 /* Endpoints.swift in Sources */,
+				1146A1052A8571A5008D7043 /* LaunchLibraryClient.swift in Sources */,
+				1146A1102A858194008D7043 /* NetworkError.swift in Sources */,
 				1146A0EF2A856CE6008D7043 /* SpaceXApp.swift in Sources */,
+				1146A1082A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
