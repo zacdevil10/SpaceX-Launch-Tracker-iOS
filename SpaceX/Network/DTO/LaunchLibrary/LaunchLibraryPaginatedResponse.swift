@@ -9,7 +9,13 @@ import Foundation
 
 struct LaunchLibraryPaginatedResponse<T : Decodable> : Decodable {
     
-    private enum RootCodingKeys: String, CodingKey {
+    private(set) var count: Int? = nil
+    private(set) var next: String? = nil
+    private(set) var previous: String? = nil
+    private(set) var results: [T] = []
+    private(set) var detail: String? = nil
+    
+    private enum CodingKeys : CodingKey {
         case count
         case next
         case previous
@@ -17,36 +23,12 @@ struct LaunchLibraryPaginatedResponse<T : Decodable> : Decodable {
         case detail
     }
     
-    private(set) var count: Int? = nil
-    private(set) var next: String? = nil
-    private(set) var previous: String? = nil
-    private(set) var results: [T] = []
-    private(set) var detail: String? = nil
-    
     init(from decoder: Decoder) throws {
-        let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
-        var resultsContainer = try rootContainer.nestedUnkeyedContainer(forKey: .results)
-        
-        if let count = try? rootContainer.decode(Int?.self, forKey: .count) {
-            self.count = count
-        }
-        
-        if let next = try? rootContainer.decode(String?.self, forKey: .next) {
-            self.next = next
-        }
-        
-        if let previous = try? rootContainer.decode(String?.self, forKey: .previous) {
-            self.previous = previous
-        }
-        
-        while !resultsContainer.isAtEnd {
-            if let result = try? resultsContainer.decode(T.self) {
-                results.append(result)
-            }
-        }
-        
-        if let detail = try? rootContainer.decode(String?.self, forKey: .detail) {
-            self.detail = detail
-        }
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.count = try container.decodeIfPresent(Int.self, forKey: .count)
+        self.next = try container.decodeIfPresent(String.self, forKey: .next)
+        self.previous = try container.decodeIfPresent(String.self, forKey: .previous)
+        self.results = try container.decode([T].self, forKey: .results)
+        self.detail = try container.decodeIfPresent(String.self, forKey: .detail)
     }
 }

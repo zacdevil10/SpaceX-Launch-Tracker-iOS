@@ -520,7 +520,7 @@ struct LaunchResponse : Identifiable, Decodable {
     struct Pad : Identifiable, Decodable {
         let id: Int
         let url: String?
-        let agencyId: String?
+        let agencyId: Int?
         let name: String?
         let infoUrl: String?
         let wikiUrl: String?
@@ -552,7 +552,7 @@ struct LaunchResponse : Identifiable, Decodable {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(Int.self, forKey: .id)
             self.url = try container.decodeIfPresent(String.self, forKey: .url)
-            self.agencyId = try container.decodeIfPresent(String.self, forKey: .agencyId)
+            self.agencyId = try container.decodeIfPresent(Int.self, forKey: .agencyId)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
             self.infoUrl = try container.decodeIfPresent(String.self, forKey: .infoUrl)
             self.wikiUrl = try container.decodeIfPresent(String.self, forKey: .wikiUrl)
