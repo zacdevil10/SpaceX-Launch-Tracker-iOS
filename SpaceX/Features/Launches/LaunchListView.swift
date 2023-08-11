@@ -10,41 +10,68 @@ import SwiftUI
 struct LaunchListView: View {
     @EnvironmentObject var provider: LaunchesProvider
     
+    private var tabs: [Tab] = [
+        Tab(id: 0, icon: "clock", text: "Upcoming"),
+        Tab(id: 1, icon: "timer", text: "Previous")
+    ]
+    
     var body: some View {
-        launchList(result: provider.upcoming)
+        TabLayout(tabs: tabs) {
+            Screen(result: provider.upcoming) { data in
+                List {
+                    LaunchExpandedView(
+                        patch: data.first?.missionPatches?.first?.imageUrl,
+                        vehicle: data.first?.rocket?.configuration?.name,
+                        missionName: data.first?.mission?.name ?? data.first?.name,
+                        date: data.first?.net?.formatLaunchDate(),
+                        isReused: data.first?.rocket?.launcherStage?.first?.reused ?? false,
+                        landingPad: data.first?.rocket?.launcherStage?.first?.landing?.location?.abbrev,
+                        launchSite: data.first?.pad?.name,
+                        description: data.first?.mission?.description
+                    )
+                    
+                    ForEach(data.dropFirst()) { launch in
+                        launchView(launch: launch)
+                            .listRowSeparator(.hidden)
+                    }
+                }
+                .listStyle(PlainListStyle())
+                .refreshable {
+                    await fetchUpcoming()
+                }
+            }
             .task {
                 await fetchUpcoming()
             }
-        
+            .tag(0)
+
+            Screen(result: provider.previous) { data in
+                List(data) { launch in
+                    launchView(launch: launch)
+                        .listRowSeparator(.hidden)
+                }
+                .listStyle(PlainListStyle())
+                .refreshable {
+                    await fetchPrevious()
+                }
+            }
+            .task {
+                await fetchPrevious()
+            }
+            .tag(1)
+        }
     }
     
     @ViewBuilder
-    private func launchList(result: ApiResult<[LaunchResponse]>) -> some View {
-        Screen(result: result) { data in
-            List {
-                LaunchExpandedView(
-                    patch: data.first?.missionPatches?.first?.imageUrl,
-                    vehicle: data.first?.rocket?.configuration?.name,
-                    missionName: data.first?.mission?.name ?? data.first?.name,
-                    date: data.first?.net?.formatLaunchDate(),
-                    isReused: data.first?.rocket?.launcherStage?.first?.reused ?? false,
-                    landingPad: data.first?.rocket?.launcherStage?.first?.landing?.location?.abbrev,
-                    launchSite: data.first?.pad?.name,
-                    description: data.first?.mission?.description
-                )
-                
-                ForEach(data.dropFirst()) { launch in
-                    LaunchView(
-                        patch: launch.missionPatches?.first?.imageUrl,
-                        vehicle: launch.rocket?.configuration?.name,
-                        missionName: launch.mission?.name ?? data.first?.name,
-                        date: launch.net?.formatLaunchDate(),
-                        isReused: launch.rocket?.launcherStage?.first?.reused ?? false,
-                        landingPad: launch.rocket?.launcherStage?.first?.landing?.location?.abbrev
-                    )
-                }
-            }
-        }
+    private func launchView(launch: LaunchResponse) -> some View {
+        LaunchView(
+            patch: launch.missionPatches?.first?.imageUrl,
+            vehicle: launch.rocket?.configuration?.name,
+            missionName: launch.mission?.name ?? launch.name,
+            date: launch.net?.formatLaunchDate(),
+            isReused: launch.rocket?.launcherStage?.first?.reused ?? false,
+            landingPad: launch.rocket?.launcherStage?.first?.landing?.location?.abbrev
+        )
     }
 }
 

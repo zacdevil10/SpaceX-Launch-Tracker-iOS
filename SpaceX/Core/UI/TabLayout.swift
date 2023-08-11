@@ -1,0 +1,83 @@
+//
+//  TabLayout.swift
+//  SpaceX
+//
+//  Created by Zac Hadjineophytou on 11/08/2023.
+//
+
+import SwiftUI
+
+struct TabLayout<Content: View>: View {
+    let tabs: [Tab]
+    @State private var selectedTab = 0
+    @ViewBuilder var content: Content
+    
+    init(tabs: [Tab] = [], @ViewBuilder content: () -> Content) {
+        self.tabs = tabs
+        self.content = content()
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
+                    ForEach(tabs.indices, id: \.self) { index in
+                        Button(action: {
+                            withAnimation {
+                                selectedTab = index
+                            }
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: tabs[index].icon)
+                                Text(tabs[index].text)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                            .background(Color.clear)
+                            .foregroundColor(selectedTab == index ? .accentColor : .gray)
+                        }
+                    }
+                }
+                .frame(height: 48)
+                
+                GeometryReader { geometry in
+                    RoundedRectangle(cornerRadius: 2)
+                        .frame(width: geometry.size.width / CGFloat(tabs.count), height: 3)
+                        .foregroundColor(.accentColor)
+                        .offset(x: CGFloat(selectedTab) * (geometry.size.width / CGFloat(tabs.count)))
+                }
+                .frame(height: 3.0)
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.accentColor.opacity(0.3))
+            }
+            .background(.white)
+            
+            TabView(selection: $selectedTab) {
+                content
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }
+    }
+}
+
+struct TabLayout_Previews: PreviewProvider {
+    static var previews: some View {
+        TabLayout(tabs: [
+            Tab(id: 0, icon: "clock", text: "Item 0"),
+            Tab(id: 1, icon: "clock", text: "Item 1"),
+            Tab(id: 2, icon: "clock", text: "Item 2")
+        ]) {
+            Text("Item 0").tag(0)
+            Text("Item 1").tag(1)
+            Text("Item 2").tag(2)
+        }
+    }
+}
+
+struct Tab: Identifiable {
+    let id: Int
+    let icon: String
+    let text: String
+}
