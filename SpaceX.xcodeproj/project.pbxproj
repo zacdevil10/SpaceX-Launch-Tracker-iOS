@@ -21,6 +21,11 @@
 		1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1112A85823F008D7043 /* LaunchResponse.swift */; };
 		1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1132A859627008D7043 /* HTTPDataDownloader.swift */; };
 		1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */; };
+		11AE34822A86648A00A97DAA /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34812A86648A00A97DAA /* Screen.swift */; };
+		11AE348A2A867DE100A97DAA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34892A867DE100A97DAA /* LaunchView.swift */; };
+		11AE348C2A86812200A97DAA /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348B2A86812200A97DAA /* LabelValueView.swift */; };
+		11AE34902A869C7900A97DAA /* LaunchExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */; };
+		11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34912A869CFB00A97DAA /* OutlineCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		1146A1112A85823F008D7043 /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
 		1146A1132A859627008D7043 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
 		1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsClient.swift; sourceTree = "<group>"; };
+		11AE34812A86648A00A97DAA /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		11AE34892A867DE100A97DAA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		11AE348B2A86812200A97DAA /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
+		11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchExpandedView.swift; sourceTree = "<group>"; };
+		11AE34912A869CFB00A97DAA /* OutlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,7 @@
 		1146A0ED2A856CE6008D7043 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				11AE34802A86646B00A97DAA /* UI */,
 				1146A0FD2A856E26008D7043 /* Network */,
 				1146A0EE2A856CE6008D7043 /* SpaceXApp.swift */,
 				1146A0F02A856CE6008D7043 /* ContentView.swift */,
@@ -145,6 +156,18 @@
 				1146A10D2A8573F9008D7043 /* ArticleResponse.swift */,
 			);
 			path = SpaceflightNews;
+			sourceTree = "<group>";
+		};
+		11AE34802A86646B00A97DAA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				11AE34812A86648A00A97DAA /* Screen.swift */,
+				11AE34892A867DE100A97DAA /* LaunchView.swift */,
+				11AE348B2A86812200A97DAA /* LabelValueView.swift */,
+				11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */,
+				11AE34912A869CFB00A97DAA /* OutlineCard.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
