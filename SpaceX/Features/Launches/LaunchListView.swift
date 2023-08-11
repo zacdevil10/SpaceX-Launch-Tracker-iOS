@@ -19,17 +19,24 @@ struct LaunchListView: View {
         TabLayout(tabs: tabs) {
             Screen(result: provider.upcoming) { data in
                 List {
-                    LaunchExpandedView(
-                        patch: data.first?.missionPatches?.first?.imageUrl,
-                        vehicle: data.first?.rocket?.configuration?.name,
-                        missionName: data.first?.mission?.name ?? data.first?.name,
-                        date: data.first?.net?.formatLaunchDate(),
-                        isReused: data.first?.rocket?.launcherStage?.first?.reused ?? false,
-                        landingPad: data.first?.rocket?.launcherStage?.first?.landing?.location?.abbrev,
-                        launchSite: data.first?.pad?.name,
-                        description: data.first?.mission?.description
-                    )
-                    
+                    HStack(spacing: 0) {
+                        LaunchExpandedView(
+                            patch: data.first?.missionPatches?.first?.imageUrl,
+                            vehicle: data.first?.rocket?.configuration?.name,
+                            missionName: data.first?.mission?.name ?? data.first?.name,
+                            date: data.first?.net?.formatLaunchDate(),
+                            isReused: data.first?.rocket?.launcherStage?.first?.reused ?? false,
+                            landingPad: data.first?.rocket?.launcherStage?.first?.landing?.location?.abbrev,
+                            launchSite: data.first?.pad?.name,
+                            description: data.first?.mission?.description
+                        )
+                        NavigationLink(destination: Text("Test")) {
+                            EmptyView()
+                        }
+                        .frame(width: 0)
+                        .opacity(0)
+                    }
+
                     ForEach(data.dropFirst()) { launch in
                         launchView(launch: launch)
                             .listRowSeparator(.hidden)
@@ -64,14 +71,21 @@ struct LaunchListView: View {
     
     @ViewBuilder
     private func launchView(launch: LaunchResponse) -> some View {
-        LaunchView(
-            patch: launch.missionPatches?.first?.imageUrl,
-            vehicle: launch.rocket?.configuration?.name,
-            missionName: launch.mission?.name ?? launch.name,
-            date: launch.net?.formatLaunchDate(),
-            isReused: launch.rocket?.launcherStage?.first?.reused ?? false,
-            landingPad: launch.rocket?.launcherStage?.first?.landing?.location?.abbrev
-        )
+        HStack(spacing: 0) {
+            LaunchView(
+                patch: launch.missionPatches?.first?.imageUrl,
+                vehicle: launch.rocket?.configuration?.name,
+                missionName: launch.mission?.name ?? launch.name,
+                date: launch.net?.formatLaunchDate(),
+                isReused: launch.rocket?.launcherStage?.first?.reused ?? false,
+                landingPad: launch.rocket?.launcherStage?.first?.landing?.location?.abbrev
+            )
+            NavigationLink(destination: Text("Test")) {
+                EmptyView()
+            }
+            .frame(width: 0)
+            .opacity(0)
+        }
     }
 }
 

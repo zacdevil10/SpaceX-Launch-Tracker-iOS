@@ -12,8 +12,19 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            LaunchListView()
-                .environmentObject(launchesProvider)
+            NavigationStack {
+                TabView {
+                    LaunchListView()
+                        .environmentObject(launchesProvider)
+                        .tabItem {
+                            Label("Launches", systemImage: "calendar")
+                        }
+                }.onAppear {
+                    let tabBarAppearance = UITabBarAppearance()
+                    tabBarAppearance.configureWithOpaqueBackground()
+                    UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+                }
+            }
         }
     }
 }
