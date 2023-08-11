@@ -20,6 +20,7 @@
 		1146A1102A858194008D7043 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A10F2A858194008D7043 /* NetworkError.swift */; };
 		1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1112A85823F008D7043 /* LaunchResponse.swift */; };
 		1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1132A859627008D7043 /* HTTPDataDownloader.swift */; };
+		1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1146A10F2A858194008D7043 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1146A1112A85823F008D7043 /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
 		1146A1132A859627008D7043 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
+		1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				1146A1042A8571A5008D7043 /* LaunchLibraryClient.swift */,
+				1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */,
 				1146A10C2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift in Sources */,
 				1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */,
 				1146A0FF2A856EA1008D7043 /* Hosts.swift in Sources */,
