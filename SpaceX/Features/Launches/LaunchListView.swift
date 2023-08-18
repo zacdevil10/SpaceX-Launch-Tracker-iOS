@@ -52,10 +52,15 @@ struct LaunchListView: View {
             }
             .tag(0)
 
-            Screen(result: provider.previous) { data in
+            Screen(result: ApiResult.success(provider.previous)) { data in
                 List(data) { launch in
                     launchView(launch: launch)
                         .listRowSeparator(.hidden)
+                        .onAppear() {
+                            Task {
+                                await fetchPreviousNext(launch: launch)
+                            }
+                        }
                 }
                 .listStyle(PlainListStyle())
                 .refreshable {
@@ -63,7 +68,9 @@ struct LaunchListView: View {
                 }
             }
             .task {
-                await fetchPrevious()
+                if provider.previous.isEmpty {
+                    await fetchPrevious()
+                }
             }
             .tag(1)
         }
@@ -101,6 +108,14 @@ extension LaunchListView {
     func fetchPrevious() async {
         do {
             try await provider.fetchPrevious()
+        } catch {
+            
+        }
+    }
+    
+    func fetchPreviousNext(launch: LaunchResponse) async {
+        do {
+            try await provider.fetchPreviousNext(launch: launch)
         } catch {
             
         }

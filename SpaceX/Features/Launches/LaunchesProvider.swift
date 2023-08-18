@@ -10,9 +10,11 @@ import Foundation
 class LaunchesProvider: ObservableObject {
     
     @Published var upcoming: ApiResult<[LaunchResponse]> = ApiResult.pending
-    @Published var previous: ApiResult<[LaunchResponse]> = ApiResult.pending
+    @Published var previous: [LaunchResponse] = [LaunchResponse]()
     
     let client: LaunchLibraryClient
+    
+    var previousNext: String? = nil
     
     func fetchUpcoming() async throws {
         let latestUpcoming = try await client.upcoming
@@ -22,9 +24,25 @@ class LaunchesProvider: ObservableObject {
     }
     
     func fetchPrevious() async throws {
-        let latestPrevious = try await client.previous
+        let latestPrevious = try await client.previous()
+
+        previousNext = latestPrevious.next
+
         DispatchQueue.main.async {
-            self.previous = ApiResult.success(latestPrevious)
+            self.previous = latestPrevious.results
+        }
+    }
+    
+    func fetchPreviousNext(launch: LaunchResponse) async throws {
+        let thresholdIndex = previous.last?.id
+        if thresholdIndex == launch.id {
+            let latestPrevious = try await client.previous(url: URL(string: previousNext!)!)
+            
+            previousNext = latestPrevious.next
+            
+            DispatchQueue.main.async {
+                self.previous += latestPrevious.results
+            }
         }
     }
     

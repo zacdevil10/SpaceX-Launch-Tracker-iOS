@@ -9,7 +9,7 @@ import Foundation
 
 class LaunchLibraryClient {
     
-    private let upcomingUrl = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/upcoming?limit=10&search=SpaceX&mode=detailed")!
+    private let upcomingUrl = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/upcoming?limit=10&search=SpaceX&mode=detailed")!
     
     var upcoming: [LaunchResponse] {
         get async throws {
@@ -19,14 +19,12 @@ class LaunchLibraryClient {
         }
     }
     
-    private let previousUrl = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed")!
+    private let previousUrl = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed")!
     
-    var previous: [LaunchResponse] {
-        get async throws {
-            let data = try await downloader.httpData(from: previousUrl)
-            let previousLaunches = try decoder.decode(LaunchLibraryPaginatedResponse<LaunchResponse>.self, from: data)
-            return previousLaunches.results
-        }
+    func previous(url: URL = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed")!) async throws -> LaunchLibraryPaginatedResponse<LaunchResponse> {
+        let data = try await downloader.httpData(from: url)
+        let previousLaunches = try decoder.decode(LaunchLibraryPaginatedResponse<LaunchResponse>.self, from: data)
+        return previousLaunches
     }
     
     private lazy var decoder: JSONDecoder = {
