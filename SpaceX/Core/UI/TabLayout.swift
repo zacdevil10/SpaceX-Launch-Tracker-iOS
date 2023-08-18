@@ -52,7 +52,7 @@ struct TabLayout<Content: View>: View {
                     .frame(height: 1)
                     .foregroundColor(.accentColor.opacity(0.3))
             }
-            .background(.white)
+            .background(.background)
             
             TabView(selection: $selectedTab) {
                 content
