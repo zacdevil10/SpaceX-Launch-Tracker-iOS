@@ -28,7 +28,9 @@ struct TabLayout<Content: View>: View {
                             }
                         }) {
                             HStack(spacing: 4) {
-                                Image(systemName: tabs[index].icon)
+                                if let icon = tabs[index].icon {
+                                    Image(systemName: icon)
+                                }
                                 Text(tabs[index].text)
                             }
                             .frame(maxWidth: .infinity)
@@ -66,7 +68,7 @@ struct TabLayout_Previews: PreviewProvider {
     static var previews: some View {
         TabLayout(tabs: [
             Tab(id: 0, icon: "clock", text: "Item 0"),
-            Tab(id: 1, icon: "clock", text: "Item 1"),
+            Tab(id: 1, text: "Item 1"),
             Tab(id: 2, icon: "clock", text: "Item 2")
         ]) {
             Text("Item 0").tag(0)
@@ -78,6 +80,6 @@ struct TabLayout_Previews: PreviewProvider {
 
 struct Tab: Identifiable {
     let id: Int
-    let icon: String
+    var icon: String? = nil
     let text: String
 }

@@ -21,16 +21,16 @@ struct LaunchListView: View {
                 List {
                     HStack(spacing: 0) {
                         LaunchExpandedView(
-                            patch: data.first?.missionPatches?.first?.imageUrl,
-                            vehicle: data.first?.rocket?.configuration?.name,
-                            missionName: data.first?.mission?.name ?? data.first?.name,
-                            date: data.first?.net?.formatLaunchDate(),
-                            isReused: data.first?.rocket?.launcherStage?.first?.reused ?? false,
-                            landingPad: data.first?.rocket?.launcherStage?.first?.landing?.location?.abbrev,
-                            launchSite: data.first?.pad?.name,
-                            description: data.first?.mission?.description
+                            patch: data.first?.missionPatch,
+                            vehicle: data.first?.rocket,
+                            missionName: data.first?.missionName,
+                            date: data.first?.launchDate,
+                            isReused: data.first?.isReused() ?? false,
+                            landingPad: data.first?.landingPad(),
+                            launchSite: data.first?.launchLocation,
+                            description: data.first?.description
                         )
-                        NavigationLink(destination: Text("Test")) {
+                        NavigationLink(destination: LaunchDetailsContainer(launch: data.first!)) {
                             EmptyView()
                         }
                         .frame(width: 0)
@@ -77,17 +77,17 @@ struct LaunchListView: View {
     }
     
     @ViewBuilder
-    private func launchView(launch: LaunchResponse) -> some View {
+    private func launchView(launch: LaunchItem) -> some View {
         HStack(spacing: 0) {
             LaunchView(
-                patch: launch.missionPatches?.first?.imageUrl,
-                vehicle: launch.rocket?.configuration?.name,
-                missionName: launch.mission?.name ?? launch.name,
-                date: launch.net?.formatLaunchDate(),
-                isReused: launch.rocket?.launcherStage?.first?.reused ?? false,
-                landingPad: launch.rocket?.launcherStage?.first?.landing?.location?.abbrev
+                patch: launch.missionPatch,
+                vehicle: launch.rocket,
+                missionName: launch.missionName,
+                date: launch.launchDate,
+                isReused: launch.isReused(),
+                landingPad: launch.landingPad()
             )
-            NavigationLink(destination: Text("Test")) {
+            NavigationLink(destination: LaunchDetailsContainer(launch: launch)) {
                 EmptyView()
             }
             .frame(width: 0)
@@ -113,7 +113,7 @@ extension LaunchListView {
         }
     }
     
-    func fetchPreviousNext(launch: LaunchResponse) async {
+    func fetchPreviousNext(launch: LaunchItem) async {
         do {
             try await provider.fetchPreviousNext(launch: launch)
         } catch {

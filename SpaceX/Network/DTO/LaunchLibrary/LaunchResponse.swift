@@ -25,7 +25,7 @@ struct LaunchResponse : Identifiable, Decodable {
     let rocket: Rocket?
     let mission: Mission?
     let pad: Pad?
-    let video: [Video]?
+    let video: [Video]
     let webcastLive: Bool?
     let image: String?
     let infographic: String?
@@ -93,7 +93,7 @@ struct LaunchResponse : Identifiable, Decodable {
         self.rocket = try container.decodeIfPresent(Rocket.self, forKey: .rocket)
         self.mission = try container.decodeIfPresent(Mission.self, forKey: .mission)
         self.pad = try container.decodeIfPresent(Pad.self, forKey: .pad)
-        self.video = try container.decodeIfPresent([Video].self, forKey: .video)
+        self.video = try container.decodeIfPresent([Video].self, forKey: .video) ?? []
         self.webcastLive = try container.decodeIfPresent(Bool.self, forKey: .webcastLive)
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
         self.infographic = try container.decodeIfPresent(String.self, forKey: .infographic)
@@ -351,10 +351,10 @@ struct LaunchResponse : Identifiable, Decodable {
             let destination: String?
             let launchCrew: [LaunchCrew]?
             
-            enum CodingKeys: CodingKey {
+            enum CodingKeys: String, CodingKey {
                 case id
                 case destination
-                case launchCrew
+                case launchCrew = "launch_crew"
             }
             
             init(from decoder: Decoder) throws {
@@ -597,7 +597,8 @@ struct LaunchResponse : Identifiable, Decodable {
         }
     }
     
-    struct Video : Decodable {
+    struct Video : Identifiable, Decodable {
+        let id: UUID
         let priority: Int
         let title: String?
         let description: String?
@@ -614,6 +615,7 @@ struct LaunchResponse : Identifiable, Decodable {
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.id = UUID()
             self.priority = try container.decode(Int.self, forKey: .priority)
             self.title = try container.decodeIfPresent(String.self, forKey: .title)
             self.description = try container.decodeIfPresent(String.self, forKey: .description)

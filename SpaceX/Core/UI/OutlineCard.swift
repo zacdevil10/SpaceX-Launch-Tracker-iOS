@@ -7,25 +7,18 @@
 
 import SwiftUI
 
-struct OutlineCard<Content: View>: View {
-    @ViewBuilder var content: Content
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            content
-        }
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(.gray, lineWidth: 1)
-        )
+struct OutlineCard: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(.gray, lineWidth: 1)
+            )
     }
 }
 
-struct OutlineCard_Previews: PreviewProvider {
-    static var previews: some View {
-        OutlineCard {
-            Text("Test")
-            Text("Test")
-        }
+extension View {
+    func outlineCard() -> some View {
+        modifier(OutlineCard())
     }
 }

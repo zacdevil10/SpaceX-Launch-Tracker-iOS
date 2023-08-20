@@ -18,16 +18,11 @@ struct LaunchExpandedView: View {
     let description: String?
     
     var body: some View {
-        OutlineCard {
-            HStack {
-                Spacer()
-                
-                Text("T-42:13:23:55")
-                    .font(.largeTitle)
-                
-                Spacer()
-            }
-            .padding([.top, .horizontal])
+        VStack(alignment: .leading, spacing: 0) {
+            Text("T-42:13:23:55")
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity)
+                .padding([.top, .horizontal])
             
             LaunchView(
                 patch: patch,
@@ -51,7 +46,7 @@ struct LaunchExpandedView: View {
                     .padding(.top, 8)
                     .padding([.horizontal, .bottom], 16)
             }
-        }
+        }.outlineCard()
     }
 }
 

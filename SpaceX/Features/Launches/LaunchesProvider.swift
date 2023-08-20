@@ -9,8 +9,8 @@ import Foundation
 
 class LaunchesProvider: ObservableObject {
     
-    @Published var upcoming: ApiResult<[LaunchResponse]> = ApiResult.pending
-    @Published var previous: [LaunchResponse] = [LaunchResponse]()
+    @Published var upcoming: ApiResult<[LaunchItem]> = ApiResult.pending
+    @Published var previous: [LaunchItem] = [LaunchItem]()
     
     let client: LaunchLibraryClient
     
@@ -19,7 +19,7 @@ class LaunchesProvider: ObservableObject {
     func fetchUpcoming() async throws {
         let latestUpcoming = try await client.upcoming
         DispatchQueue.main.async {
-            self.upcoming = ApiResult.success(latestUpcoming)
+            self.upcoming = ApiResult.success(latestUpcoming.map { LaunchItem(response: $0) })
         }
     }
     
@@ -29,11 +29,11 @@ class LaunchesProvider: ObservableObject {
         previousNext = latestPrevious.next
 
         DispatchQueue.main.async {
-            self.previous = latestPrevious.results
+            self.previous = latestPrevious.results.map { LaunchItem(response: $0) }
         }
     }
     
-    func fetchPreviousNext(launch: LaunchResponse) async throws {
+    func fetchPreviousNext(launch: LaunchItem) async throws {
         let thresholdIndex = previous.last?.id
         if thresholdIndex == launch.id {
             let latestPrevious = try await client.previous(url: URL(string: previousNext!)!)
@@ -41,7 +41,7 @@ class LaunchesProvider: ObservableObject {
             previousNext = latestPrevious.next
             
             DispatchQueue.main.async {
-                self.previous += latestPrevious.results
+                self.previous += latestPrevious.results.map { LaunchItem(response: $0) }
             }
         }
     }
