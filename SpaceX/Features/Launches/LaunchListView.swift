@@ -19,22 +19,25 @@ struct LaunchListView: View {
         TabLayout(tabs: tabs) {
             Screen(result: provider.upcoming) { data in
                 List {
-                    HStack(spacing: 0) {
-                        LaunchExpandedView(
-                            patch: data.first?.missionPatch,
-                            vehicle: data.first?.rocket,
-                            missionName: data.first?.missionName,
-                            date: data.first?.launchDate,
-                            isReused: data.first?.isReused() ?? false,
-                            landingPad: data.first?.landingPad(),
-                            launchSite: data.first?.launchLocation,
-                            description: data.first?.description
-                        )
-                        NavigationLink(destination: LaunchDetailsContainer(launch: data.first!)) {
-                            EmptyView()
+                    if let first = data.first {
+                        HStack(spacing: 0) {
+                            LaunchExpandedView(
+                                patch: first.missionPatch,
+                                vehicle: first.rocket,
+                                missionName: first.missionName,
+                                date: first.launchDate,
+                                isReused: first.isReused(),
+                                landingPad: first.landingPad(),
+                                launchSite: first.launchLocation,
+                                description: first.description,
+                                countdown: first.countdown
+                            )
+                            NavigationLink(destination: LaunchDetailsContainer(launch: data.first!)) {
+                                EmptyView()
+                            }
+                            .frame(width: 0)
+                            .opacity(0)
                         }
-                        .frame(width: 0)
-                        .opacity(0)
                     }
 
                     ForEach(data.dropFirst()) { launch in

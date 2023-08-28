@@ -38,6 +38,7 @@ struct VideoView: View {
                     Spacer()
                     Button(action: {}) {
                         Text("Watch")
+                            .padding(.horizontal, 16)
                     }
                     .tint(.accentColor)
                     .buttonStyle(.borderedProminent)

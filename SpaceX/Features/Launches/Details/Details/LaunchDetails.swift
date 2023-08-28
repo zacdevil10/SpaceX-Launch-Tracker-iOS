@@ -13,6 +13,13 @@ struct LaunchDetails: View {
     
     var body: some View {
         List {
+            if launch.countdown() != nil {
+                CountdownView(countdown: launch.countdown)
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding([.top, .horizontal])
+            }
+            
             LaunchView(
                 patch: launch.missionPatch,
                 vehicle: launch.rocket,
@@ -150,7 +157,7 @@ struct LaunchDetails_Previews: PreviewProvider {
                 missionName: "Starlink Group 7-1",
                 rocket: "Falcon 9",
                 launchDate: "23 Oct 2023 - 07:04",
-                launchDateUnix: 1,
+                launchDateUnix: 158697306,
                 launchLocation: "Space Launch Complex 4E",
                 launchLocationMap: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launch_images/pad_16_20200803143532.jpg",
                 launchLocationMapUrl: "https://www.google.com/maps?q=34.632,-120.611",

@@ -14,7 +14,7 @@ struct LaunchItem : Identifiable {
     let missionName: String
     let rocket: String?
     let launchDate: String?
-    let launchDateUnix: Int64?
+    let launchDateUnix: Double?
     let launchLocation: String?
     let launchLocationMap: String?
     let launchLocationMapUrl: String?
@@ -28,12 +28,6 @@ struct LaunchItem : Identifiable {
     let webcastLive: Bool
     let firstStage: [FirstStageItem]?
     let crew: [CrewItem]?
-    
-    struct Status {
-        let type: Int?
-        let name: String?
-        let description: String?
-    }
     
     init(
         response: LaunchResponse
@@ -67,7 +61,7 @@ struct LaunchItem : Identifiable {
         missionName: String,
         rocket: String?,
         launchDate: String?,
-        launchDateUnix: Int64?,
+        launchDateUnix: Double?,
         launchLocation: String?,
         launchLocationMap: String?,
         launchLocationMapUrl: String?,
@@ -103,6 +97,27 @@ struct LaunchItem : Identifiable {
         self.crew = crew
     }
     
+    struct Status {
+        let type: Int?
+        let name: String?
+        let description: String?
+    }
+    
+    func countdown() -> String? {
+        let remaining = calculateCountdown()
+        
+        if upcoming && !webcastLive && remaining > 0 {
+            return remaining.daysHoursMinutesSeconds
+        } else if webcastLive {
+            return "Webcast Live"
+        } else {
+            return nil
+        }
+    }
+    
+    private func calculateCountdown() -> Double {
+        return (launchDateUnix ?? 0) - (Date().timeIntervalSince1970 * 1000)
+    }
     
 }
 

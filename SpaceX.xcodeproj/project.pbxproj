@@ -24,6 +24,7 @@
 		1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1112A85823F008D7043 /* LaunchResponse.swift */; };
 		1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1132A859627008D7043 /* HTTPDataDownloader.swift */; };
 		1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */; };
+		1163FCB82A9CD32700AD6D99 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163FCB72A9CD32700AD6D99 /* CountdownView.swift */; };
 		117566FF2A8FC24F007777F8 /* LaunchDetailsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117566FE2A8FC24F007777F8 /* LaunchDetailsContainer.swift */; };
 		117567092A8FD2B7007777F8 /* LaunchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117567082A8FD2B7007777F8 /* LaunchDetails.swift */; };
 		1175670B2A8FD2C3007777F8 /* LaunchDetailsCrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */; };
@@ -63,6 +64,7 @@
 		1146A1112A85823F008D7043 /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
 		1146A1132A859627008D7043 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
 		1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsClient.swift; sourceTree = "<group>"; };
+		1163FCB72A9CD32700AD6D99 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		117566FE2A8FC24F007777F8 /* LaunchDetailsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsContainer.swift; sourceTree = "<group>"; };
 		117567082A8FD2B7007777F8 /* LaunchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetails.swift; sourceTree = "<group>"; };
 		1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsCrew.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				11AE34912A869CFB00A97DAA /* OutlineCard.swift */,
 				11AE34992A86AB0600A97DAA /* TabLayout.swift */,
 				110CB8902A9228A5004E6D1C /* VideoView.swift */,
+				1163FCB72A9CD32700AD6D99 /* CountdownView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1163FCB82A9CD32700AD6D99 /* CountdownView.swift in Sources */,
 				1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */,
 				110CB88D2A920BE0004E6D1C /* CollectionUtils.swift in Sources */,
 				117566FF2A8FC24F007777F8 /* LaunchDetailsContainer.swift in Sources */,

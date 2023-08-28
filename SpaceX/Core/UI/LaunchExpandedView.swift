@@ -16,13 +16,16 @@ struct LaunchExpandedView: View {
     let landingPad: String?
     let launchSite: String?
     let description: String?
+    let countdown: () -> String?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("T-42:13:23:55")
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity)
-                .padding([.top, .horizontal])
+            if countdown() != nil {
+                CountdownView(countdown: countdown)
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding([.top, .horizontal])
+            }
             
             LaunchView(
                 patch: patch,
@@ -51,6 +54,9 @@ struct LaunchExpandedView: View {
 }
 
 struct LaunchExpandedView_Previews: PreviewProvider {
+    
+    static var countdown: () -> String? = { "T-23:15:12:36" }
+    
     static var previews: some View {
         LaunchExpandedView(
             patch: nil,
@@ -60,7 +66,8 @@ struct LaunchExpandedView_Previews: PreviewProvider {
             isReused: true,
             landingPad: "JRTI",
             launchSite: "CCAFS SLC 40",
-            description: "Description"
+            description: "Description",
+            countdown: countdown
         )
     }
 }
