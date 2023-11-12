@@ -51,19 +51,28 @@ struct LaunchListView: View {
                 }
             }
             .task {
-                await fetchUpcoming()
+                if case .pending = provider.upcoming {
+                    await fetchUpcoming()
+                }
             }
             .tag(0)
 
-            Screen(result: ApiResult.success(provider.previous)) { data in
-                List(data) { launch in
-                    launchView(launch: launch)
-                        .listRowSeparator(.hidden)
-                        .onAppear() {
-                            Task {
-                                await fetchPreviousNext(launch: launch)
+            Screen(result: provider.previous) { data in
+                List {
+                    ForEach(data) { launch in
+                        launchView(launch: launch)
+                            .listRowSeparator(.hidden)
+                            .onAppear() {
+                                Task {
+                                    await fetchPreviousNext(launch: launch)
+                                }
                             }
-                        }
+                    }
+                    
+                    if case .success = provider.previous {
+                        pagingIndicator
+                            .listRowSeparator(.hidden)
+                    }
                 }
                 .listStyle(PlainListStyle())
                 .refreshable {
@@ -71,7 +80,7 @@ struct LaunchListView: View {
                 }
             }
             .task {
-                if provider.previous.isEmpty {
+                if case .pending = provider.previous {
                     await fetchPrevious()
                 }
             }
@@ -95,6 +104,21 @@ struct LaunchListView: View {
             }
             .frame(width: 0)
             .opacity(0)
+        }
+    }
+    
+    var pagingIndicator: some View {
+        HStack(alignment: .center) {
+            switch provider.previousLoadState {
+            case .success:
+                EmptyView()
+            case .pending:
+                Spacer()
+                ProgressView()
+                Spacer()
+            case .error(_):
+                Text("Error")
+            }
         }
     }
 }

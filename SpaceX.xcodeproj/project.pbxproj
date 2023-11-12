@@ -29,6 +29,7 @@
 		117567092A8FD2B7007777F8 /* LaunchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117567082A8FD2B7007777F8 /* LaunchDetails.swift */; };
 		1175670B2A8FD2C3007777F8 /* LaunchDetailsCrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */; };
 		1175670D2A8FD2CF007777F8 /* LaunchDetailsCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175670C2A8FD2CF007777F8 /* LaunchDetailsCores.swift */; };
+		118E19702B01214800418391 /* LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E196F2B01214800418391 /* LoadState.swift */; };
 		1196E0BC2A915000009512FC /* DomainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196E0BB2A915000009512FC /* DomainObject.swift */; };
 		11AE34822A86648A00A97DAA /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34812A86648A00A97DAA /* Screen.swift */; };
 		11AE34842A86652C00A97DAA /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34832A86652C00A97DAA /* ApiResult.swift */; };
@@ -69,6 +70,7 @@
 		117567082A8FD2B7007777F8 /* LaunchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetails.swift; sourceTree = "<group>"; };
 		1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsCrew.swift; sourceTree = "<group>"; };
 		1175670C2A8FD2CF007777F8 /* LaunchDetailsCores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsCores.swift; sourceTree = "<group>"; };
+		118E196F2B01214800418391 /* LoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadState.swift; sourceTree = "<group>"; };
 		1196E0BB2A915000009512FC /* DomainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainObject.swift; sourceTree = "<group>"; };
 		11AE34812A86648A00A97DAA /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		11AE34832A86652C00A97DAA /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				1146A10F2A858194008D7043 /* NetworkError.swift */,
 				1146A1132A859627008D7043 /* HTTPDataDownloader.swift */,
 				11AE34832A86652C00A97DAA /* ApiResult.swift */,
+				118E196F2B01214800418391 /* LoadState.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				11AE34822A86648A00A97DAA /* Screen.swift in Sources */,
 				1146A0FF2A856EA1008D7043 /* Hosts.swift in Sources */,
 				1146A0F12A856CE6008D7043 /* ContentView.swift in Sources */,
+				118E19702B01214800418391 /* LoadState.swift in Sources */,
 				11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */,
 				1175670B2A8FD2C3007777F8 /* LaunchDetailsCrew.swift in Sources */,
 				110CB88F2A920C13004E6D1C /* StringUtils.swift in Sources */,
