@@ -18,6 +18,11 @@ struct ContentView: View {
                         .tabItem {
                             Label("Launches", systemImage: "calendar")
                         }
+                    
+                    NewsScreen()
+                        .tabItem {
+                            Label("News", systemImage: "newspaper")
+                        }
                 }.onAppear {
                     let tabBarAppearance = UITabBarAppearance()
                     tabBarAppearance.configureWithOpaqueBackground()

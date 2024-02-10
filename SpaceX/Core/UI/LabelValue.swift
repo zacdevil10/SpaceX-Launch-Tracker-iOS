@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LabelValueView: View {
+struct LabelValue: View {
     let label: String
     let value: String
     
@@ -22,9 +22,9 @@ struct LabelValueView: View {
     }
 }
 
-struct LabelValueView_Previews: PreviewProvider {
+struct LabelValue_Previews: PreviewProvider {
     static var previews: some View {
-        LabelValueView(
+        LabelValue(
             label: "Label",
             value: "Value"
         )

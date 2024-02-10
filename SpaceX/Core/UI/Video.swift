@@ -7,33 +7,38 @@
 
 import SwiftUI
 
-struct VideoView: View {
+struct Video: View {
     let image: String?
-    let title: String
+    let title: String?
     
     var body: some View {
-        HStack(spacing: 0) {
+        VStack(spacing: 0) {
             if let image = image {
                 AsyncImage(url: URL(string: image)) { image in
                     image
                         .resizable()
-                        .scaledToFill()
-                        .frame(width: 150)
+                        .aspectRatio(16/9, contentMode: .fit)
                 } placeholder: {
                     Image(systemName: "photo")
                         .resizable()
-                        .scaledToFit()
                         .foregroundColor(Color.gray.opacity(0.5))
-                        .frame(width: 150, height: 150)
-                        .clipped()
+                        .aspectRatio(16/9, contentMode: .fit)
                 }.cornerRadius(16)
+            } else {
+                Image(systemName: "photo")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(Color.gray.opacity(0.5))
+                    .frame(width: 150, height: 150)
+                    .clipped()
             }
             VStack {
-                Text(title)
-                    .lineLimit(2...)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.trailing, 16)
-                Spacer()
+                if let title = title {
+                    Text(title)
+                        .lineLimit(2...)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.trailing, 16)
+                }
                 HStack {
                     Spacer()
                     Button(action: {}) {
@@ -52,9 +57,9 @@ struct VideoView: View {
     }
 }
 
-struct VideoView_Previews: PreviewProvider {
+struct Video_Previews: PreviewProvider {
     static var previews: some View {
-        VideoView(
+        Video(
             image: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
             title: "Starlink Mission"
         )

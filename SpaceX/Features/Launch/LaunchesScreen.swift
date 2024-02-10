@@ -42,7 +42,7 @@ struct LaunchesContent : View {
                 List {
                     if let first = data.first {
                         HStack(spacing: 0) {
-                            LaunchExpandedView(
+                            LaunchExpanded(
                                 patch: first.missionPatch,
                                 vehicle: first.rocket,
                                 missionName: first.missionName,
@@ -96,7 +96,7 @@ struct LaunchesContent : View {
     @ViewBuilder
     private func launchView(launch: LaunchItem) -> some View {
         HStack(spacing: 0) {
-            LaunchView(
+            Launch(
                 patch: launch.missionPatch,
                 vehicle: launch.rocket,
                 missionName: launch.missionName,

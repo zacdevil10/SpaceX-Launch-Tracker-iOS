@@ -14,7 +14,7 @@ protocol HTTPDataDownloader {
 extension URLSession: HTTPDataDownloader {
     
     func get<T: Decodable>(url: String, model: T.Type, handler: @escaping (ApiResult<T>) -> Void) {
-        var decoder: JSONDecoder = {
+        let decoder: JSONDecoder = {
             let aDecoder = JSONDecoder()
             aDecoder.dateDecodingStrategy = .millisecondsSince1970
             return aDecoder

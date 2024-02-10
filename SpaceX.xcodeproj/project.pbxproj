@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		110CB88D2A920BE0004E6D1C /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110CB88C2A920BE0004E6D1C /* CollectionUtils.swift */; };
 		110CB88F2A920C13004E6D1C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110CB88E2A920C13004E6D1C /* StringUtils.swift */; };
-		110CB8912A9228A5004E6D1C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110CB8902A9228A5004E6D1C /* VideoView.swift */; };
+		110CB8912A9228A5004E6D1C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110CB8902A9228A5004E6D1C /* Video.swift */; };
+		1131E72A2B77F9F6009BF121 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E7292B77F9F6009BF121 /* NewsScreen.swift */; };
 		1146A0EF2A856CE6008D7043 /* SpaceXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A0EE2A856CE6008D7043 /* SpaceXApp.swift */; };
 		1146A0F12A856CE6008D7043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A0F02A856CE6008D7043 /* ContentView.swift */; };
 		1146A0F32A856CE7008D7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1146A0F22A856CE7008D7043 /* Assets.xcassets */; };
@@ -24,7 +25,7 @@
 		1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1112A85823F008D7043 /* LaunchResponse.swift */; };
 		1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1132A859627008D7043 /* HTTPDataDownloader.swift */; };
 		1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */; };
-		1163FCB82A9CD32700AD6D99 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163FCB72A9CD32700AD6D99 /* CountdownView.swift */; };
+		1163FCB82A9CD32700AD6D99 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163FCB72A9CD32700AD6D99 /* Countdown.swift */; };
 		117566FF2A8FC24F007777F8 /* LaunchDetailsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117566FE2A8FC24F007777F8 /* LaunchDetailsContainer.swift */; };
 		117567092A8FD2B7007777F8 /* LaunchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117567082A8FD2B7007777F8 /* LaunchDetails.swift */; };
 		1175670B2A8FD2C3007777F8 /* LaunchDetailsCrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */; };
@@ -34,10 +35,10 @@
 		11AE34822A86648A00A97DAA /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34812A86648A00A97DAA /* Screen.swift */; };
 		11AE34842A86652C00A97DAA /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34832A86652C00A97DAA /* ApiResult.swift */; };
 		11AE34882A86673D00A97DAA /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34872A86673D00A97DAA /* LaunchesViewModel.swift */; };
-		11AE348A2A867DE100A97DAA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34892A867DE100A97DAA /* LaunchView.swift */; };
-		11AE348C2A86812200A97DAA /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348B2A86812200A97DAA /* LabelValueView.swift */; };
+		11AE348A2A867DE100A97DAA /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34892A867DE100A97DAA /* Launch.swift */; };
+		11AE348C2A86812200A97DAA /* LabelValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348B2A86812200A97DAA /* LabelValue.swift */; };
 		11AE348E2A86819E00A97DAA /* LaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */; };
-		11AE34902A869C7900A97DAA /* LaunchExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */; };
+		11AE34902A869C7900A97DAA /* LaunchExpanded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */; };
 		11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34912A869CFB00A97DAA /* OutlineCard.swift */; };
 		11AE34962A86A49400A97DAA /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34952A86A49400A97DAA /* DateUtils.swift */; };
 		11AE349A2A86AB0600A97DAA /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34992A86AB0600A97DAA /* TabLayout.swift */; };
@@ -48,7 +49,8 @@
 /* Begin PBXFileReference section */
 		110CB88C2A920BE0004E6D1C /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		110CB88E2A920C13004E6D1C /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
-		110CB8902A9228A5004E6D1C /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		110CB8902A9228A5004E6D1C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		1131E7292B77F9F6009BF121 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		1146A0EB2A856CE6008D7043 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1146A0EE2A856CE6008D7043 /* SpaceXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApp.swift; sourceTree = "<group>"; };
 		1146A0F02A856CE6008D7043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		1146A1112A85823F008D7043 /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
 		1146A1132A859627008D7043 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
 		1146A1152A8599E1008D7043 /* SpaceflightNewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsClient.swift; sourceTree = "<group>"; };
-		1163FCB72A9CD32700AD6D99 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		1163FCB72A9CD32700AD6D99 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		117566FE2A8FC24F007777F8 /* LaunchDetailsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsContainer.swift; sourceTree = "<group>"; };
 		117567082A8FD2B7007777F8 /* LaunchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetails.swift; sourceTree = "<group>"; };
 		1175670A2A8FD2C3007777F8 /* LaunchDetailsCrew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsCrew.swift; sourceTree = "<group>"; };
@@ -75,10 +77,10 @@
 		11AE34812A86648A00A97DAA /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		11AE34832A86652C00A97DAA /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		11AE34872A86673D00A97DAA /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
-		11AE34892A867DE100A97DAA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		11AE348B2A86812200A97DAA /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
+		11AE34892A867DE100A97DAA /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		11AE348B2A86812200A97DAA /* LabelValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValue.swift; sourceTree = "<group>"; };
 		11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
-		11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchExpandedView.swift; sourceTree = "<group>"; };
+		11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchExpanded.swift; sourceTree = "<group>"; };
 		11AE34912A869CFB00A97DAA /* OutlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCard.swift; sourceTree = "<group>"; };
 		11AE34952A86A49400A97DAA /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		11AE34992A86AB0600A97DAA /* TabLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1131E7282B77F9D3009BF121 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				1131E7292B77F9F6009BF121 /* NewsScreen.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		1146A0E22A856CE6008D7043 = {
 			isa = PBXGroup;
 			children = (
@@ -234,13 +244,13 @@
 			isa = PBXGroup;
 			children = (
 				11AE34812A86648A00A97DAA /* Screen.swift */,
-				11AE34892A867DE100A97DAA /* LaunchView.swift */,
-				11AE348B2A86812200A97DAA /* LabelValueView.swift */,
-				11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */,
+				11AE34892A867DE100A97DAA /* Launch.swift */,
+				11AE348B2A86812200A97DAA /* LabelValue.swift */,
+				11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */,
 				11AE34912A869CFB00A97DAA /* OutlineCard.swift */,
 				11AE34992A86AB0600A97DAA /* TabLayout.swift */,
-				110CB8902A9228A5004E6D1C /* VideoView.swift */,
-				1163FCB72A9CD32700AD6D99 /* CountdownView.swift */,
+				110CB8902A9228A5004E6D1C /* Video.swift */,
+				1163FCB72A9CD32700AD6D99 /* Countdown.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -248,6 +258,7 @@
 		11AE34852A86672200A97DAA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1131E7282B77F9D3009BF121 /* News */,
 				11AE34862A86672A00A97DAA /* Launch */,
 			);
 			path = Features;
@@ -371,13 +382,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1163FCB82A9CD32700AD6D99 /* CountdownView.swift in Sources */,
+				1131E72A2B77F9F6009BF121 /* NewsScreen.swift in Sources */,
+				1163FCB82A9CD32700AD6D99 /* Countdown.swift in Sources */,
 				1146A1162A8599E1008D7043 /* SpaceflightNewsClient.swift in Sources */,
 				110CB88D2A920BE0004E6D1C /* CollectionUtils.swift in Sources */,
 				117566FF2A8FC24F007777F8 /* LaunchDetailsContainer.swift in Sources */,
-				11AE348C2A86812200A97DAA /* LabelValueView.swift in Sources */,
-				11AE348A2A867DE100A97DAA /* LaunchView.swift in Sources */,
-				11AE34902A869C7900A97DAA /* LaunchExpandedView.swift in Sources */,
+				11AE348C2A86812200A97DAA /* LabelValue.swift in Sources */,
+				11AE348A2A867DE100A97DAA /* Launch.swift in Sources */,
+				11AE34902A869C7900A97DAA /* LaunchExpanded.swift in Sources */,
 				11AE34962A86A49400A97DAA /* DateUtils.swift in Sources */,
 				11AE348E2A86819E00A97DAA /* LaunchesScreen.swift in Sources */,
 				1196E0BC2A915000009512FC /* DomainObject.swift in Sources */,
@@ -401,7 +413,7 @@
 				11AE34882A86673D00A97DAA /* LaunchesViewModel.swift in Sources */,
 				1146A1052A8571A5008D7043 /* LaunchLibraryClient.swift in Sources */,
 				1146A1102A858194008D7043 /* NetworkError.swift in Sources */,
-				110CB8912A9228A5004E6D1C /* VideoView.swift in Sources */,
+				110CB8912A9228A5004E6D1C /* Video.swift in Sources */,
 				11AE34842A86652C00A97DAA /* ApiResult.swift in Sources */,
 				1146A0EF2A856CE6008D7043 /* SpaceXApp.swift in Sources */,
 				1146A1082A85720B008D7043 /* LaunchLibraryPaginatedResponse.swift in Sources */,

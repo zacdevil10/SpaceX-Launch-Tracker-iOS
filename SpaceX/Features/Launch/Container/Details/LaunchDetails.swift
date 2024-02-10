@@ -14,13 +14,13 @@ struct LaunchDetails: View {
     var body: some View {
         List {
             if launch.countdown() != nil {
-                CountdownView(countdown: launch.countdown)
+                Countdown(countdown: launch.countdown)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
                     .padding([.top, .horizontal])
             }
             
-            LaunchView(
+            Launch(
                 patch: launch.missionPatch,
                 vehicle: launch.rocket,
                 missionName: launch.missionName,
@@ -53,12 +53,12 @@ struct LaunchDetails: View {
                         .padding(.top, 8)
                     
                     if let type = launch.type {
-                        LabelValueView(label: "Type:", value: type)
+                        LabelValue(label: "Type:", value: type)
                             .padding(.top, 8)
                     }
                     
                     if let orbit = launch.orbit {
-                        LabelValueView(label: "Orbit", value: orbit)
+                        LabelValue(label: "Orbit", value: orbit)
                             .padding(.top, 8)
                     }
                 }
@@ -68,11 +68,24 @@ struct LaunchDetails: View {
                 .listRowSeparator(.hidden)
             }
             
-            ForEach(launch.webcast.compactMap{ $0 }) { webcast in
-                if let title = webcast.title {
-                    VideoView(image: webcast.imageUrl, title: title)
+            if launch.webcast.count > 0 {
+                if launch.webcast.count == 1 {
+                    let webcast = launch.webcast.first
+                    Video(image: webcast?.imageUrl, title: webcast?.title)
                         .outlineCard()
                         .listRowSeparator(.hidden)
+                } else {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            ForEach(launch.webcast.compactMap{ $0 }) { webcast in
+                                if let title = webcast.title {
+                                    Video(image: webcast.imageUrl, title: title)
+                                        .outlineCard()
+                                        .listRowSeparator(.hidden)
+                                }
+                            }
+                        }
+                    }.frame(height: 300)
                 }
             }
             
@@ -91,7 +104,7 @@ struct LaunchDetails: View {
             
             if launch.status.type != nil {
                 VStack(alignment: .leading, spacing: 0) {
-                    LabelValueView(label: "Status:", value: launch.status.name ?? "")
+                    LabelValue(label: "Status:", value: launch.status.name ?? "")
                     
                     Text(launch.status.type == 4 ? launch.failReason ?? "" : launch.status.description ?? "")
                         .padding(.top, 8)
@@ -110,7 +123,7 @@ struct LaunchDetails: View {
                             UIApplication.shared.open(URL(string: mapUrl)!)
                         }
                     
-                    LabelValueView(label: "Launch site:", value: launchLocation)
+                    LabelValue(label: "Launch site:", value: launchLocation)
                         .padding(.top, 8)
                         .padding([.horizontal, .bottom], 16)
                 }
@@ -168,6 +181,20 @@ struct LaunchDetails_Previews: PreviewProvider {
                 type: "Communications",
                 orbit: "Low Earth Orbit",
                 webcast: [
+                    VideoItem(
+                        id: UUID(),
+                        title: "Starlink Mission",
+                        description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
+                        imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+                        url: "https://www.youtube.com/live/agYuEAkEljw"
+                    ),
+                    VideoItem(
+                        id: UUID(),
+                        title: "Starlink Mission",
+                        description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
+                        imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+                        url: "https://www.youtube.com/live/agYuEAkEljw"
+                    ),
                     VideoItem(
                         id: UUID(),
                         title: "Starlink Mission",

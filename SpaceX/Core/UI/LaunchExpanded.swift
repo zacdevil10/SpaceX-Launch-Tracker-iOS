@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LaunchExpandedView: View {
+struct LaunchExpanded: View {
     let patch: String?
     let vehicle: String?
     let missionName: String?
@@ -21,13 +21,13 @@ struct LaunchExpandedView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if countdown() != nil {
-                CountdownView(countdown: countdown)
+                Countdown(countdown: countdown)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
                     .padding([.top, .horizontal])
             }
             
-            LaunchView(
+            Launch(
                 patch: patch,
                 vehicle: vehicle,
                 missionName: missionName,
@@ -39,7 +39,7 @@ struct LaunchExpandedView: View {
             .padding([.leading, .trailing], 16)
             
             if let launchSite = launchSite {
-                LabelValueView(label: "Launch site:", value: launchSite)
+                LabelValue(label: "Launch site:", value: launchSite)
                     .padding(.top, 8)
                     .padding(.horizontal, 16)
             }
@@ -53,12 +53,12 @@ struct LaunchExpandedView: View {
     }
 }
 
-struct LaunchExpandedView_Previews: PreviewProvider {
+struct LaunchExpanded_Previews: PreviewProvider {
     
     static var countdown: () -> String? = { "T-23:15:12:36" }
     
     static var previews: some View {
-        LaunchExpandedView(
+        LaunchExpanded(
             patch: nil,
             vehicle: "Falcon 9",
             missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet",

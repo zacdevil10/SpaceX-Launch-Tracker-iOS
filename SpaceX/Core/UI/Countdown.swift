@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountdownView: View {
+struct Countdown: View {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var countdown: () -> String?
@@ -24,11 +24,11 @@ struct CountdownView: View {
     }
 }
 
-struct CountdownView_Previews: PreviewProvider {
+struct Countdown_Previews: PreviewProvider {
     static var countdown: () -> String = { "T-23:15:12:36" }
     
     static var previews: some View {
-        CountdownView(
+        Countdown(
             countdown: countdown
         )
     }
