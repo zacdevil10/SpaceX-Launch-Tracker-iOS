@@ -17,7 +17,7 @@ struct ArticleResponse : Identifiable {
     let publishedAt: String
     let updatedAt: String
     let featured: Bool
-    let launches: Launch
+    let launches: [Launch]
     
     struct Launch : Identifiable {
         let id: String
@@ -51,7 +51,7 @@ extension ArticleResponse: Decodable {
         let rawPublishedAt = try? values.decode(String.self, forKey: .publishedAt)
         let rawUpdatedAt = try? values.decode(String.self, forKey: .updatedAt)
         let rawFeatured = try? values.decode(Bool.self, forKey: .featured)
-        let rawLaunches = try? values.decode(Launch.self, forKey: .launches)
+        let rawLaunches = try? values.decode([Launch].self, forKey: .launches)
         
         guard let id = rawId,
               let title = rawTitle,

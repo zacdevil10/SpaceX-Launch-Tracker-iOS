@@ -17,10 +17,12 @@ struct Video: View {
                 AsyncImage(url: URL(string: image)) { image in
                     image
                         .resizable()
+                        .scaledToFit()
                         .aspectRatio(16/9, contentMode: .fit)
                 } placeholder: {
                     Image(systemName: "photo")
                         .resizable()
+                        .scaledToFit()
                         .foregroundColor(Color.gray.opacity(0.5))
                         .aspectRatio(16/9, contentMode: .fit)
                 }.cornerRadius(16)
@@ -29,8 +31,7 @@ struct Video: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(Color.gray.opacity(0.5))
-                    .frame(width: 150, height: 150)
-                    .clipped()
+                    .aspectRatio(16/9, contentMode: .fit)
             }
             VStack {
                 if let title = title {
@@ -60,6 +61,13 @@ struct Video: View {
 #Preview {
     Video(
         image: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+        title: "Starlink Mission"
+    )
+}
+
+#Preview("No Image") {
+    Video(
+        image: nil,
         title: "Starlink Mission"
     )
 }
