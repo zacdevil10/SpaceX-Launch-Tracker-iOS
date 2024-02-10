@@ -33,10 +33,10 @@
 		1196E0BC2A915000009512FC /* DomainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196E0BB2A915000009512FC /* DomainObject.swift */; };
 		11AE34822A86648A00A97DAA /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34812A86648A00A97DAA /* Screen.swift */; };
 		11AE34842A86652C00A97DAA /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34832A86652C00A97DAA /* ApiResult.swift */; };
-		11AE34882A86673D00A97DAA /* LaunchesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34872A86673D00A97DAA /* LaunchesProvider.swift */; };
+		11AE34882A86673D00A97DAA /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34872A86673D00A97DAA /* LaunchesViewModel.swift */; };
 		11AE348A2A867DE100A97DAA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34892A867DE100A97DAA /* LaunchView.swift */; };
 		11AE348C2A86812200A97DAA /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348B2A86812200A97DAA /* LabelValueView.swift */; };
-		11AE348E2A86819E00A97DAA /* LaunchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348D2A86819E00A97DAA /* LaunchListView.swift */; };
+		11AE348E2A86819E00A97DAA /* LaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */; };
 		11AE34902A869C7900A97DAA /* LaunchExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */; };
 		11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34912A869CFB00A97DAA /* OutlineCard.swift */; };
 		11AE34962A86A49400A97DAA /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34952A86A49400A97DAA /* DateUtils.swift */; };
@@ -74,10 +74,10 @@
 		1196E0BB2A915000009512FC /* DomainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainObject.swift; sourceTree = "<group>"; };
 		11AE34812A86648A00A97DAA /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		11AE34832A86652C00A97DAA /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		11AE34872A86673D00A97DAA /* LaunchesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesProvider.swift; sourceTree = "<group>"; };
+		11AE34872A86673D00A97DAA /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
 		11AE34892A867DE100A97DAA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		11AE348B2A86812200A97DAA /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
-		11AE348D2A86819E00A97DAA /* LaunchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListView.swift; sourceTree = "<group>"; };
+		11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
 		11AE348F2A869C7900A97DAA /* LaunchExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchExpandedView.swift; sourceTree = "<group>"; };
 		11AE34912A869CFB00A97DAA /* OutlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCard.swift; sourceTree = "<group>"; };
 		11AE34952A86A49400A97DAA /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			path = SpaceflightNews;
 			sourceTree = "<group>";
 		};
-		117567042A8FD27C007777F8 /* Details */ = {
+		117567042A8FD27C007777F8 /* Container */ = {
 			isa = PBXGroup;
 			children = (
 				117567072A8FD2A2007777F8 /* Cores */,
@@ -203,7 +203,7 @@
 				117567052A8FD28B007777F8 /* Details */,
 				117566FE2A8FC24F007777F8 /* LaunchDetailsContainer.swift */,
 			);
-			path = Details;
+			path = Container;
 			sourceTree = "<group>";
 		};
 		117567052A8FD28B007777F8 /* Details */ = {
@@ -248,20 +248,20 @@
 		11AE34852A86672200A97DAA /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				11AE34862A86672A00A97DAA /* Launches */,
+				11AE34862A86672A00A97DAA /* Launch */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		11AE34862A86672A00A97DAA /* Launches */ = {
+		11AE34862A86672A00A97DAA /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				117567042A8FD27C007777F8 /* Details */,
-				11AE34872A86673D00A97DAA /* LaunchesProvider.swift */,
-				11AE348D2A86819E00A97DAA /* LaunchListView.swift */,
+				117567042A8FD27C007777F8 /* Container */,
+				11AE34872A86673D00A97DAA /* LaunchesViewModel.swift */,
+				11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */,
 				1196E0BB2A915000009512FC /* DomainObject.swift */,
 			);
-			path = Launches;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		11AE34932A86A47500A97DAA /* Common */ = {
@@ -379,7 +379,7 @@
 				11AE348A2A867DE100A97DAA /* LaunchView.swift in Sources */,
 				11AE34902A869C7900A97DAA /* LaunchExpandedView.swift in Sources */,
 				11AE34962A86A49400A97DAA /* DateUtils.swift in Sources */,
-				11AE348E2A86819E00A97DAA /* LaunchListView.swift in Sources */,
+				11AE348E2A86819E00A97DAA /* LaunchesScreen.swift in Sources */,
 				1196E0BC2A915000009512FC /* DomainObject.swift in Sources */,
 				1146A10C2A85736B008D7043 /* SpaceflightNewsPaginatedResponse.swift in Sources */,
 				1146A1142A859627008D7043 /* HTTPDataDownloader.swift in Sources */,
@@ -398,7 +398,7 @@
 				1175670D2A8FD2CF007777F8 /* LaunchDetailsCores.swift in Sources */,
 				1146A1012A856EF3008D7043 /* Endpoints.swift in Sources */,
 				11D6684B2A91633400B32DF4 /* CrewStatus.swift in Sources */,
-				11AE34882A86673D00A97DAA /* LaunchesProvider.swift in Sources */,
+				11AE34882A86673D00A97DAA /* LaunchesViewModel.swift in Sources */,
 				1146A1052A8571A5008D7043 /* LaunchLibraryClient.swift in Sources */,
 				1146A1102A858194008D7043 /* NetworkError.swift in Sources */,
 				110CB8912A9228A5004E6D1C /* VideoView.swift in Sources */,
@@ -553,7 +553,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.zac-h.SpaceX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,7 +595,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.zac-h.SpaceX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -7,17 +7,38 @@
 
 import SwiftUI
 
-struct LaunchListView: View {
-    @EnvironmentObject var provider: LaunchesProvider
+struct LaunchesScreen: View {
+
+    @StateObject private var provider: LaunchesViewModel = LaunchesViewModel()
     
-    private var tabs: [Tab] = [
+    var body: some View {
+        LaunchesContent(
+            upcoming: provider.upcoming,
+            previous: provider.previous,
+            fetchPreviousNext: { (id) -> Void in
+                await provider.fetchPreviousNext(id: id)
+            },
+            previousLoadState: provider.previousLoadState
+        )
+    }
+}
+
+struct LaunchesContent : View {
+    let upcoming: ApiResult<[LaunchItem]>
+    let previous: ApiResult<[LaunchItem]>
+
+    let fetchPreviousNext: (String) async -> Void
+    
+    let previousLoadState: LoadState
+
+    var tabs: [Tab] = [
         Tab(id: 0, icon: "clock", text: "Upcoming"),
         Tab(id: 1, icon: "timer", text: "Previous")
     ]
-    
+
     var body: some View {
         TabLayout(tabs: tabs) {
-            Screen(result: provider.upcoming) { data in
+            Screen(result: upcoming) { data in
                 List {
                     if let first = data.first {
                         HStack(spacing: 0) {
@@ -32,7 +53,7 @@ struct LaunchListView: View {
                                 description: first.description,
                                 countdown: first.countdown
                             )
-                            NavigationLink(destination: LaunchDetailsContainer(launch: data.first!)) {
+                            NavigationLink(destination: LaunchDetailsContainer(launch: first)) {
                                 EmptyView()
                             }
                             .frame(width: 0)
@@ -46,43 +67,27 @@ struct LaunchListView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .refreshable {
-                    await fetchUpcoming()
-                }
-            }
-            .task {
-                if case .pending = provider.upcoming {
-                    await fetchUpcoming()
-                }
             }
             .tag(0)
 
-            Screen(result: provider.previous) { data in
+            Screen(result: previous) { data in
                 List {
                     ForEach(data) { launch in
                         launchView(launch: launch)
                             .listRowSeparator(.hidden)
                             .onAppear() {
                                 Task {
-                                    await fetchPreviousNext(launch: launch)
+                                    await fetchPreviousNext(launch.id)
                                 }
                             }
                     }
                     
-                    if case .success = provider.previous {
+                    if case .success = previous {
                         pagingIndicator
                             .listRowSeparator(.hidden)
                     }
                 }
                 .listStyle(PlainListStyle())
-                .refreshable {
-                    await fetchPrevious()
-                }
-            }
-            .task {
-                if case .pending = provider.previous {
-                    await fetchPrevious()
-                }
             }
             .tag(1)
         }
@@ -109,7 +114,7 @@ struct LaunchListView: View {
     
     var pagingIndicator: some View {
         HStack(alignment: .center) {
-            switch provider.previousLoadState {
+            switch previousLoadState {
             case .success:
                 EmptyView()
             case .pending:
@@ -123,35 +128,8 @@ struct LaunchListView: View {
     }
 }
 
-extension LaunchListView {
-    func fetchUpcoming() async {
-        do {
-            try await provider.fetchUpcoming()
-        } catch {
-            
-        }
-    }
-    
-    func fetchPrevious() async {
-        do {
-            try await provider.fetchPrevious()
-        } catch {
-            
-        }
-    }
-    
-    func fetchPreviousNext(launch: LaunchItem) async {
-        do {
-            try await provider.fetchPreviousNext(launch: launch)
-        } catch {
-            
-        }
-    }
-}
-
 struct LaunchListView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchListView()
-            .environmentObject(LaunchesProvider())
+        LaunchesScreen()
     }
 }

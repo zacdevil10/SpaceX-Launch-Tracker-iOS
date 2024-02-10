@@ -19,8 +19,8 @@ struct Screen<T, Content: View>: View {
                 content(data)
             case .pending:
                 ProgressView()
-            case .error(_):
-                Text("Error")
+            case .error(let error):
+                Text(error.localizedDescription)
             }
         }
     }

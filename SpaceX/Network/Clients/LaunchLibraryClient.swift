@@ -8,30 +8,35 @@
 import Foundation
 
 class LaunchLibraryClient {
+
+    var previousNext: String? = nil
     
-    private let upcomingUrl = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/upcoming?limit=10&search=SpaceX&mode=detailed")!
-    
-    var upcoming: [LaunchResponse] {
-        get async throws {
-            let data = try await downloader.httpData(from: upcomingUrl)
-            let upcomingLaunches = try decoder.decode(LaunchLibraryPaginatedResponse<LaunchResponse>.self, from: data)
-            return upcomingLaunches.results
+    func getUpcomingLaunches(handler: @escaping (ApiResult<[LaunchResponse]>) -> Void) {
+        downloader.get(
+            url: "https://lldev.thespacedevs.com/2.2.0/launch/upcoming?limit=10&search=SpaceX&mode=detailed",
+            model: LaunchLibraryPaginatedResponse<LaunchResponse>.self
+        ) { result in
+            handler(result.transform { value in value.results})
         }
     }
     
-    private let previousUrl = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed")!
-    
-    func previous(url: URL = URL(string: "https://lldev.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed")!) async throws -> LaunchLibraryPaginatedResponse<LaunchResponse> {
-        let data = try await downloader.httpData(from: url)
-        let previousLaunches = try decoder.decode(LaunchLibraryPaginatedResponse<LaunchResponse>.self, from: data)
-        return previousLaunches
+    func getPreviousLaunches(
+        url: String = "https://lldev.thespacedevs.com/2.2.0/launch/previous?search=SpaceX&mode=detailed",
+        handler: @escaping (ApiResult<[LaunchResponse]>) -> Void
+    ) {
+        // Bug: Once at end of list, previousNext will be null which means url will be used instead of not making a request.
+        downloader.get(
+            url: previousNext ?? url,
+            model: LaunchLibraryPaginatedResponse<LaunchResponse>.self
+        ) { result in
+            handler(
+                result.transform { value in
+                    self.previousNext = value.next
+                    return value.results
+                }
+            )
+        }
     }
-    
-    private lazy var decoder: JSONDecoder = {
-        let aDecoder = JSONDecoder()
-        aDecoder.dateDecodingStrategy = .millisecondsSince1970
-        return aDecoder
-    }()
     
     private let downloader: any HTTPDataDownloader
     

@@ -9,22 +9,24 @@ import Foundation
 
 class SpaceflightNewsClient {
     
-    private let feedURL = URL(string: "https://api.spaceflightnewsapi.net/v4/articles/?search=SpaceX")!
-    
-    var articles: [ArticleResponse] {
-        get async throws {
-            let data = try await downloader.httpData(from: feedURL)
-            let allArticles = try decoder.decode(SpaceflightNewsPaginatedResponse<ArticleResponse>.self, from: data)
-            return allArticles.results
+    private let feedURL = "https://api.spaceflightnewsapi.net/v4/articles/?search=SpaceX"
+    private var nextUrl: String? = nil
+
+    func getArticles(handler: @escaping (ApiResult<[ArticleResponse]>) -> Void) {
+        // Bug: Once at end of list, nextUrl will be null which means feedURL will be used instead of not making a request.
+        downloader.get(
+            url: nextUrl ?? feedURL,
+            model: SpaceflightNewsPaginatedResponse<ArticleResponse>.self
+        ) { result in
+            handler(
+                result.transform { value in
+                    self.nextUrl = value.next
+                    return value.results
+                }
+            )
         }
     }
-    
-    private lazy var decoder: JSONDecoder = {
-        let aDecoder = JSONDecoder()
-        aDecoder.dateDecodingStrategy = .millisecondsSince1970
-        return aDecoder
-    }()
-    
+
     private let downloader: any HTTPDataDownloader
     
     init(downloader: any HTTPDataDownloader = URLSession.shared) {

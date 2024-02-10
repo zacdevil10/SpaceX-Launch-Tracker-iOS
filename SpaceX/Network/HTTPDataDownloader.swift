@@ -7,18 +7,45 @@
 
 import Foundation
 
-let validStatus = 200...299
-
 protocol HTTPDataDownloader {
-    func httpData(from: URL) async throws -> Data
+    func get<T: Decodable>(url: String, model: T.Type, handler: @escaping (ApiResult<T>) -> Void)
 }
 
 extension URLSession: HTTPDataDownloader {
-    func httpData(from url: URL) async throws -> Data {
-        guard let (data, response) = try await self.data(from: url, delegate: nil) as? (Data, HTTPURLResponse),
-              validStatus.contains(response.statusCode) else {
-            throw NetworkError.networkError
+    
+    func get<T: Decodable>(url: String, model: T.Type, handler: @escaping (ApiResult<T>) -> Void) {
+        var decoder: JSONDecoder = {
+            let aDecoder = JSONDecoder()
+            aDecoder.dateDecodingStrategy = .millisecondsSince1970
+            return aDecoder
+        }()
+        
+        guard let url = URL(string: url) else {
+            handler(.pending)
+            return
         }
-        return data
+        let request = URLRequest(url: url)
+
+        dataTask(with: request) { data, response, error in
+            if let data = data {
+                do {
+                    let response = try decoder.decode(model, from: data)
+                    
+                    DispatchQueue.main.async {
+                        handler(.success(response))
+                    }
+                } catch let error {
+                    DispatchQueue.main.async {
+                        handler(.error(error))
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    if let error = error {
+                        handler(.error(error))
+                    }
+                }
+            }
+        }.resume()
     }
 }

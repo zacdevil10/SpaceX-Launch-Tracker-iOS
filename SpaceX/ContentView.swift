@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var launchesProvider = LaunchesProvider()
+    @StateObject var launchesProvider = LaunchesViewModel()
     
     var body: some View {
         VStack {
             NavigationStack {
                 TabView {
-                    LaunchListView()
-                        .environmentObject(launchesProvider)
+                    LaunchesScreen()
                         .tabItem {
                             Label("Launches", systemImage: "calendar")
                         }
@@ -32,6 +31,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(LaunchesProvider())
     }
 }
