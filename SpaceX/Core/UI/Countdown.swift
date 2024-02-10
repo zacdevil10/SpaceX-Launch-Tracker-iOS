@@ -24,12 +24,8 @@ struct Countdown: View {
     }
 }
 
-struct Countdown_Previews: PreviewProvider {
-    static var countdown: () -> String = { "T-23:15:12:36" }
-    
-    static var previews: some View {
-        Countdown(
-            countdown: countdown
-        )
-    }
+#Preview {
+    Countdown(
+        countdown: { "T-23:15:12:36" }
+    )
 }

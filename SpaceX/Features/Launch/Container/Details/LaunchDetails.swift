@@ -160,68 +160,66 @@ struct LaunchDetails: View {
     }
 }
 
-struct LaunchDetails_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchDetails(
-            launch: LaunchItem(
-                id: "id",
-                upcoming: true,
-                missionPatch: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/mission_patch_images/space2520x252_mission_patch_20221011205756.png",
-                missionName: "Starlink Group 7-1",
-                rocket: "Falcon 9",
-                launchDate: "23 Oct 2023 - 07:04",
-                launchDateUnix: 158697306,
-                launchLocation: "Space Launch Complex 4E",
-                launchLocationMap: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launch_images/pad_16_20200803143532.jpg",
-                launchLocationMapUrl: "https://www.google.com/maps?q=34.632,-120.611",
-                status: LaunchItem.Status(type: 1, name: "Status Name", description: "Status Description"),
-                holdReason: "Hold Reason",
-                failReason: "Fail Reason",
-                description: "Description",
-                type: "Communications",
-                orbit: "Low Earth Orbit",
-                webcast: [
-                    VideoItem(
-                        id: UUID(),
-                        title: "Starlink Mission",
-                        description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
-                        imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
-                        url: "https://www.youtube.com/live/agYuEAkEljw"
-                    ),
-                    VideoItem(
-                        id: UUID(),
-                        title: "Starlink Mission",
-                        description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
-                        imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
-                        url: "https://www.youtube.com/live/agYuEAkEljw"
-                    ),
-                    VideoItem(
-                        id: UUID(),
-                        title: "Starlink Mission",
-                        description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
-                        imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
-                        url: "https://www.youtube.com/live/agYuEAkEljw"
-                    )
-                ],
-                webcastLive: false,
-                firstStage: [
-                    FirstStageItem(
-                        id: "id",
-                        serial: "Serial",
-                        type: CoreType.CORE,
-                        reused: true,
-                        totalFlights: 5,
-                        landingAttempt: true,
-                        landingDescription: "Landing Description",
-                        landingType: "Landing Type",
-                        landingLocation: "",
-                        landingLocationFull: "",
-                        previousFlight: "",
-                        turnAroundTimeDays: 50
-                    )
-                ],
-                crew: []
-            )
+#Preview {
+    LaunchDetails(
+        launch: LaunchItem(
+            id: "id",
+            upcoming: true,
+            missionPatch: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/mission_patch_images/space2520x252_mission_patch_20221011205756.png",
+            missionName: "Starlink Group 7-1",
+            rocket: "Falcon 9",
+            launchDate: "23 Oct 2023 - 07:04",
+            launchDateUnix: 158697306,
+            launchLocation: "Space Launch Complex 4E",
+            launchLocationMap: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launch_images/pad_16_20200803143532.jpg",
+            launchLocationMapUrl: "https://www.google.com/maps?q=34.632,-120.611",
+            status: LaunchItem.Status(type: 1, name: "Status Name", description: "Status Description"),
+            holdReason: "Hold Reason",
+            failReason: "Fail Reason",
+            description: "Description",
+            type: "Communications",
+            orbit: "Low Earth Orbit",
+            webcast: [
+                VideoItem(
+                    id: UUID(),
+                    title: "Starlink Mission",
+                    description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
+                    imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+                    url: "https://www.youtube.com/live/agYuEAkEljw"
+                ),
+                VideoItem(
+                    id: UUID(),
+                    title: "Starlink Mission",
+                    description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
+                    imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+                    url: "https://www.youtube.com/live/agYuEAkEljw"
+                ),
+                VideoItem(
+                    id: UUID(),
+                    title: "Starlink Mission",
+                    description: "SpaceX is targeting Thursday, August 17 at 12:01 a.m. PT (7:01 UTC) for a Falcon 9 launch of 21 Starlink satellites to low-Earth orbit from Space Launch Comp...",
+                    imageUrl: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+                    url: "https://www.youtube.com/live/agYuEAkEljw"
+                )
+            ],
+            webcastLive: false,
+            firstStage: [
+                FirstStageItem(
+                    id: "id",
+                    serial: "Serial",
+                    type: CoreType.CORE,
+                    reused: true,
+                    totalFlights: 5,
+                    landingAttempt: true,
+                    landingDescription: "Landing Description",
+                    landingType: "Landing Type",
+                    landingLocation: "",
+                    landingLocationFull: "",
+                    previousFlight: "",
+                    turnAroundTimeDays: 50
+                )
+            ],
+            crew: []
         )
-    }
+    )
 }

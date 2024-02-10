@@ -128,8 +128,6 @@ struct LaunchesContent : View {
     }
 }
 
-struct LaunchListView_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchesScreen()
-    }
+#Preview {
+    LaunchesScreen()
 }

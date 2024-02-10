@@ -64,22 +64,20 @@ struct TabLayout<Content: View>: View {
     }
 }
 
-struct TabLayout_Previews: PreviewProvider {
-    static var previews: some View {
-        TabLayout(tabs: [
-            Tab(id: 0, icon: "clock", text: "Item 0"),
-            Tab(id: 1, text: "Item 1"),
-            Tab(id: 2, icon: "clock", text: "Item 2")
-        ]) {
-            Text("Item 0").tag(0)
-            Text("Item 1").tag(1)
-            Text("Item 2").tag(2)
-        }
-    }
-}
-
 struct Tab: Identifiable {
     let id: Int
     var icon: String? = nil
     let text: String
+}
+
+#Preview {
+    TabLayout(tabs: [
+        Tab(id: 0, icon: "clock", text: "Item 0"),
+        Tab(id: 1, text: "Item 1"),
+        Tab(id: 2, icon: "clock", text: "Item 2")
+    ]) {
+        Text("Item 0").tag(0)
+        Text("Item 1").tag(1)
+        Text("Item 2").tag(2)
+    }
 }

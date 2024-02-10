@@ -108,14 +108,10 @@ struct Launch: View {
     }
 }
 
-struct LaunchReused_Previews: PreviewProvider {
-    static var previews: some View {
-        Launch(patch: nil, vehicle: "Falcon 9", missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", date: "23 Oct 2019 - 12:53", isReused: true, landingPad: "JRTI")
-    }
+#Preview {
+    Launch(patch: nil, vehicle: "Falcon 9", missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", date: "23 Oct 2019 - 12:53", isReused: false, landingPad: "JRTI")
 }
 
-struct Launch_Previews: PreviewProvider {
-    static var previews: some View {
-        Launch(patch: nil, vehicle: "Falcon 9", missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", date: "23 Oct 2019 - 12:53", isReused: false, landingPad: "JRTI")
-    }
+#Preview("Reused") {
+    Launch(patch: nil, vehicle: "Falcon 9", missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", date: "23 Oct 2019 - 12:53", isReused: true, landingPad: "JRTI")
 }

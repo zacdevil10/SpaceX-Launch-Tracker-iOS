@@ -44,31 +44,29 @@ struct LaunchDetailsContainer: View {
     }
 }
 
-struct LaunchDetailsContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchDetailsContainer(
-            launch: LaunchItem(
-                id: "id",
-                upcoming: true,
-                missionPatch: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/mission_patch_images/space2520x252_mission_patch_20221011205756.png",
-                missionName: "Starlink Group 7-1",
-                rocket: "Falcon 9",
-                launchDate: "23 Oct 2023 - 07:04",
-                launchDateUnix: 1,
-                launchLocation: "Space Launch Complex 4E",
-                launchLocationMap: "",
-                launchLocationMapUrl: "",
-                status: LaunchItem.Status(type: 1, name: "", description: ""),
-                holdReason: "",
-                failReason: "",
-                description: "",
-                type: "",
-                orbit: "",
-                webcast: [],
-                webcastLive: false,
-                firstStage: [],
-                crew: []
-            )
+#Preview {
+    LaunchDetailsContainer(
+        launch: LaunchItem(
+            id: "id",
+            upcoming: true,
+            missionPatch: "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/mission_patch_images/space2520x252_mission_patch_20221011205756.png",
+            missionName: "Starlink Group 7-1",
+            rocket: "Falcon 9",
+            launchDate: "23 Oct 2023 - 07:04",
+            launchDateUnix: 1,
+            launchLocation: "Space Launch Complex 4E",
+            launchLocationMap: "",
+            launchLocationMapUrl: "",
+            status: LaunchItem.Status(type: 1, name: "", description: ""),
+            holdReason: "",
+            failReason: "",
+            description: "",
+            type: "",
+            orbit: "",
+            webcast: [],
+            webcastLive: false,
+            firstStage: [],
+            crew: []
         )
-    }
+    )
 }

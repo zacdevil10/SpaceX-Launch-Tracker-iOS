@@ -13,8 +13,6 @@ struct LaunchDetailsCrew: View {
     }
 }
 
-struct LaunchDetailsCrew_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchDetailsCrew()
-    }
+#Preview {
+    LaunchDetailsCrew()
 }

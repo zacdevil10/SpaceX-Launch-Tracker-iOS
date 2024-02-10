@@ -53,21 +53,16 @@ struct LaunchExpanded: View {
     }
 }
 
-struct LaunchExpanded_Previews: PreviewProvider {
-    
-    static var countdown: () -> String? = { "T-23:15:12:36" }
-    
-    static var previews: some View {
-        LaunchExpanded(
-            patch: nil,
-            vehicle: "Falcon 9",
-            missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet",
-            date: "23 Oct 2019 - 12:53",
-            isReused: true,
-            landingPad: "JRTI",
-            launchSite: "CCAFS SLC 40",
-            description: "Description",
-            countdown: countdown
-        )
-    }
+#Preview {
+    LaunchExpanded(
+        patch: nil,
+        vehicle: "Falcon 9",
+        missionName: "Nusantara Satu (PSN-6) / GTO-1 / Beresheet",
+        date: "23 Oct 2019 - 12:53",
+        isReused: true,
+        landingPad: "JRTI",
+        launchSite: "CCAFS SLC 40",
+        description: "Description",
+        countdown: { "T-23:15:12:36" }
+    )
 }

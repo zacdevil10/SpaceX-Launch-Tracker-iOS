@@ -26,10 +26,8 @@ struct Screen<T, Content: View>: View {
     }
 }
 
-struct Screen_Previews: PreviewProvider {
-    static var previews: some View {
-        Screen(result: ApiResult<Any>.pending) { data in
-            Text("Preview")
-        }
+#Preview {
+    Screen(result: ApiResult<Any>.pending) { data in
+        Text("Preview")
     }
 }

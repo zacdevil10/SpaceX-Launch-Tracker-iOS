@@ -57,11 +57,9 @@ struct Video: View {
     }
 }
 
-struct Video_Previews: PreviewProvider {
-    static var previews: some View {
-        Video(
-            image: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
-            title: "Starlink Mission"
-        )
-    }
+#Preview {
+    Video(
+        image: "https://i.ytimg.com/vi/agYuEAkEljw/maxresdefault_live.jpg",
+        title: "Starlink Mission"
+    )
 }

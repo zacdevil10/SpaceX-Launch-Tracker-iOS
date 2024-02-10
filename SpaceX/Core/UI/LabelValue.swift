@@ -22,11 +22,9 @@ struct LabelValue: View {
     }
 }
 
-struct LabelValue_Previews: PreviewProvider {
-    static var previews: some View {
-        LabelValue(
-            label: "Label",
-            value: "Value"
-        )
-    }
+#Preview {
+    LabelValue(
+        label: "Label",
+        value: "Value"
+    )
 }
