@@ -42,6 +42,7 @@ struct NewsScreen: View {
                         .listRowSeparator(.hidden)
                 }
             }
+            .listStyle(PlainListStyle())
             .fullScreenCover(isPresented: $isPresentingWebView) { [url] in
                 NavigationStack {
                     if let url = URL(string: url) {

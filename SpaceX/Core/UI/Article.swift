@@ -29,7 +29,6 @@ struct Article: View {
                     .frame(maxWidth: .infinity)
                     .clipped()
                     .foregroundColor(Color.gray.opacity(0.5))
-                
             }
             .cornerRadius(16)
             HStack {

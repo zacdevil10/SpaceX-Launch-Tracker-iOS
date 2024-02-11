@@ -162,7 +162,7 @@ extension LaunchResponse.Status? {
     }
 }
 
-struct FirstStageItem {
+struct FirstStageItem : Identifiable {
     let id: String
     let serial: String
     let type: CoreType

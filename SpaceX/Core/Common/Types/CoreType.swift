@@ -7,7 +7,11 @@
 
 import Foundation
 
-enum CoreType : String {
+enum CoreType : String, Identifiable {
+    var id: Self {
+        return self
+    }
+    
     case CORE = "Core"
     case BOOSTER = "Strap-On Booster"
     case OTHER = "Other"

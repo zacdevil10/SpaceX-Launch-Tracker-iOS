@@ -16,11 +16,9 @@ struct Countdown: View {
     
     var body: some View {
         Text("\(value)")
-            .onAppear(perform: {
-                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { time in
-                    self.value = countdown() ?? ""
-                }
-            })
+            .onReceive(timer) { _ in
+                self.value = countdown() ?? ""
+            }
     }
 }
 

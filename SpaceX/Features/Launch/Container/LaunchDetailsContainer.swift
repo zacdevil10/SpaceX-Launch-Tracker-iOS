@@ -30,8 +30,8 @@ struct LaunchDetailsContainer: View {
             TabLayout(tabs: tabs) {
                 LaunchDetails(launch: launch).tag(0)
                 
-                if hasFirstStage {
-                    LaunchDetailsCores().tag(1)
+                if let firstStage = launch.firstStage, hasFirstStage {
+                    LaunchDetailsCores(firstStage: firstStage).tag(1)
                 }
                 
                 if hasCrew {

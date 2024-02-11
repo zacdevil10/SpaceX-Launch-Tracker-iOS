@@ -12,11 +12,11 @@ struct LabelValue: View {
     let value: String
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             Text(label)
                 .fontWeight(.bold)
             Spacer()
-            Text(value)
+            Text(value).multilineTextAlignment(.trailing)
         }
         .padding(.vertical, 4.0)
     }
@@ -26,5 +26,12 @@ struct LabelValue: View {
     LabelValue(
         label: "Label",
         value: "Value"
+    )
+}
+
+#Preview("Two lines") {
+    LabelValue(
+        label: "Label",
+        value: "Value 1\nLonger Value 2"
     )
 }
