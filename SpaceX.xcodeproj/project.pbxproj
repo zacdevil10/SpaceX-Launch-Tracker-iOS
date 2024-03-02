@@ -48,6 +48,7 @@
 		11AE349A2A86AB0600A97DAA /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34992A86AB0600A97DAA /* TabLayout.swift */; };
 		11D668492A91623600B32DF4 /* CoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D668482A91623600B32DF4 /* CoreType.swift */; };
 		11D6684B2A91633400B32DF4 /* CrewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6684A2A91633400B32DF4 /* CrewStatus.swift */; };
+		11FAF70A2B934B9A00949C7C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAF7092B934B9A00949C7C /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		11AE34992A86AB0600A97DAA /* TabLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
 		11D668482A91623600B32DF4 /* CoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreType.swift; sourceTree = "<group>"; };
 		11D6684A2A91633400B32DF4 /* CrewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewStatus.swift; sourceTree = "<group>"; };
+		11FAF7092B934B9A00949C7C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				1163FCB72A9CD32700AD6D99 /* Countdown.swift */,
 				1131E72B2B780340009BF121 /* Article.swift */,
 				118F12F02B796585007F569B /* FirstStage.swift */,
+				11FAF7092B934B9A00949C7C /* Theme.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				11AE34882A86673D00A97DAA /* LaunchesViewModel.swift in Sources */,
 				1146A1052A8571A5008D7043 /* LaunchLibraryClient.swift in Sources */,
 				1146A1102A858194008D7043 /* NetworkError.swift in Sources */,
+				11FAF70A2B934B9A00949C7C /* Theme.swift in Sources */,
 				110CB8912A9228A5004E6D1C /* Video.swift in Sources */,
 				11AE34842A86652C00A97DAA /* ApiResult.swift in Sources */,
 				1146A0EF2A856CE6008D7043 /* SpaceXApp.swift in Sources */,
