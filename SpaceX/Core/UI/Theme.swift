@@ -7,45 +7,12 @@
 
 import SwiftUI
 
-struct Colors {
-    var primary: Color
-    var onPrimary: Color
-    var primaryContainer: Color
-    var onPrimaryContainer: Color
-    var secondary: Color
-    var onSecondary: Color
-    var secondaryContainer: Color
-    var onSecondaryContainer : Color
-    var tertiary : Color
-    var onTertiary : Color
-    var tertiaryContainer : Color
-    var onTertiaryContainer : Color
-    var error : Color
-    var onError : Color
-    var errorContainer : Color
-    var onErrorContainer : Color
-    var outline : Color
-    var background : Color
-    var onBackground : Color
-    var surface : Color
-    var onSurface : Color
-    var surfaceVariant : Color
-    var onSurfaceVariant : Color
-    var inverseSurface : Color
-    var inverseOnSurface : Color
-    var inversePrimary : Color
-    var shadow : Color
-    var surfaceTint : Color
-    var outlineVariant : Color
-    var scrim : Color
-}
-
 extension Color {
-    static var primary: Color = Color("Primary")
+    static var materialPrimary: Color = Color("Primary")
     static var onPrimary: Color = Color("OnPrimary")
     static var primaryContainer: Color = Color("PrimaryContainer")
     static var onPrimaryContainer: Color = Color("OnPrimaryContainer")
-    static var secondary: Color = Color("Secondary")
+    static var materialSecondary: Color = Color("Secondary")
     static var onSecondary: Color = Color("OnSecondary")
     static var secondaryContainer: Color = Color("SecondaryContainer")
     static var onSecondaryContainer: Color = Color("OnSecondaryContainer")

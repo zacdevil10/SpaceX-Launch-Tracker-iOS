@@ -26,6 +26,8 @@ struct NewsScreen: View {
                         site: article.site,
                         published: article.published
                     )
+                    .listRowBackground(Color.background)
+                    .listRowSeparator(.hidden)
                     .onAppear() {
                         Task {
                             await viewModel.fetchNextArticles(id: article.id)

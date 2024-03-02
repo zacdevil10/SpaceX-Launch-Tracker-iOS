@@ -25,11 +25,26 @@ struct LaunchDetailsCores: View {
                     turnAroundTimeDays: item.turnAroundTimeDays,
                     totalFlights: item.totalFlights
                 )
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             } else {
                 ForEach(Array(grouped.keys)) { section in
                     if let items = grouped[section] {
-                        Section(section.rawValue) {
+                        Section(header: HStack {
+                            Text(section.rawValue)
+                                .font(.headline)
+                                .foregroundColor(Color.onBackground)
+                                .padding()
+
+                                Spacer()
+                        }
+                        .background(Color.background)
+                        .listRowInsets(EdgeInsets(
+                            top: 0,
+                            leading: 0,
+                            bottom: 0,
+                            trailing: 0))
+                        ) {
                             ForEach(items) { item in
                                 FirstStage(
                                     serial: item.serial,
@@ -41,6 +56,7 @@ struct LaunchDetailsCores: View {
                                     turnAroundTimeDays: item.turnAroundTimeDays,
                                     totalFlights: item.totalFlights
                                 )
+                                .listRowBackground(Color.background)
                                 .listRowSeparator(.hidden)
                             }
                         }

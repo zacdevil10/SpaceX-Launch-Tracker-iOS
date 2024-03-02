@@ -23,7 +23,7 @@ struct Launch: View {
             } else {
                 Image(systemName: "photo.circle")
                     .resizable()
-                    .foregroundColor(Color.gray.opacity(0.5))
+                    .foregroundColor(Color.materialPrimary)
                     .padding(.all, 4.0)
                     .frame(width: 64.0, height: 64.0)
             }
@@ -34,6 +34,7 @@ struct Launch: View {
                     .lineLimit(1)
                     .padding(.top, 8.0)
                     .font(.headline)
+                    .foregroundStyle(Color.onSurface)
                 
                 Spacer()
                 
@@ -41,6 +42,7 @@ struct Launch: View {
                     Text(launchDate)
                         .font(.system(size: 12))
                         .padding(.bottom, 8.0)
+                        .foregroundStyle(Color.onSurface)
                 }
                 
                 Spacer()
@@ -53,13 +55,14 @@ struct Launch: View {
                 Text(vehicle ?? "")
                     .font(.caption)
                     .padding(.top, 8.0)
+                    .foregroundStyle(Color.onSurface)
                 
                 Spacer()
                 
                 if isReused {
                     Text("REUSED")
                         .font(.caption)
-                        .foregroundColor(Color.accentColor)
+                        .foregroundStyle(Color.materialSecondary)
                 } else {
                     Text("")
                 }
@@ -69,7 +72,7 @@ struct Launch: View {
                 if landingPad != "N/A" {
                     Text(landingPad ?? "")
                         .font(.caption)
-                        .foregroundColor(Color.accentColor)
+                        .foregroundStyle(Color.materialSecondary)
                         .padding(.bottom, 8.0)
                 } else {
                     Text("")
@@ -98,12 +101,12 @@ struct Launch: View {
         case .failure:
             Image(systemName: "photo.circle")
                 .resizable()
-                .foregroundColor(Color.gray.opacity(0.5))
+                .foregroundColor(Color.materialPrimary)
                 .padding(.all, 4.0)
                 .frame(width: 64.0, height: 64.0)
         @unknown default:
             Text("Unknown")
-                .foregroundColor(.gray)
+                .foregroundColor(Color.onSurface)
         }
     }
 }

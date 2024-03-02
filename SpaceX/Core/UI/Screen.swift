@@ -17,6 +17,7 @@ struct Screen<T, Content: View>: View {
             switch result {
             case .success(let data):
                 content(data)
+                    .background(Color.background)
             case .pending:
                 ProgressView()
             case .error(let error):

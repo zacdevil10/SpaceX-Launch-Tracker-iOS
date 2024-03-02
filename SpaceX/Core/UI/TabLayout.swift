@@ -36,7 +36,7 @@ struct TabLayout<Content: View>: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 8)
                             .background(Color.clear)
-                            .foregroundColor(selectedTab == index ? .accentColor : .gray)
+                            .foregroundColor(selectedTab == index ? Color.materialPrimary : Color.inverseSurface)
                         }
                     }
                 }
@@ -45,20 +45,21 @@ struct TabLayout<Content: View>: View {
                 GeometryReader { geometry in
                     RoundedRectangle(cornerRadius: 2)
                         .frame(width: geometry.size.width / CGFloat(tabs.count), height: 3)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(Color.materialPrimary)
                         .offset(x: CGFloat(selectedTab) * (geometry.size.width / CGFloat(tabs.count)))
                 }
                 .frame(height: 3.0)
                 
                 Rectangle()
                     .frame(height: 1)
-                    .foregroundColor(.accentColor.opacity(0.3))
+                    .foregroundColor(Color.materialPrimary.opacity(0.3))
             }
-            .background(.background)
+            .background(Color.background)
             
             TabView(selection: $selectedTab) {
                 content
             }
+            .background(Color.background)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
     }

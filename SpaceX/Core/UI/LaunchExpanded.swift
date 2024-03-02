@@ -22,7 +22,6 @@ struct LaunchExpanded: View {
         VStack(alignment: .leading, spacing: 0) {
             if countdown() != nil {
                 Countdown(countdown: countdown)
-                    .font(.largeTitle)
                     .frame(maxWidth: .infinity)
                     .padding([.top, .horizontal])
             }

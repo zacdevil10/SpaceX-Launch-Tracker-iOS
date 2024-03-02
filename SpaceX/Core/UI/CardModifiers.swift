@@ -12,7 +12,7 @@ struct ElevatedCard: ViewModifier {
         content
             .background(Color.surfaceVariant)
             .cornerRadius(16)
-            .shadow(color: Color.black.opacity(0.2), radius: 4)
+            .shadow(color: Color.shadow.opacity(0.2), radius: 4)
     }
 }
 
@@ -21,7 +21,7 @@ struct OutlineCard: ViewModifier {
         content
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(.gray, lineWidth: 1)
+                    .stroke(Color.outline, lineWidth: 1)
             )
     }
 }

@@ -35,6 +35,7 @@ struct LaunchDetailsCrew: View {
                         },
                         width: geometry.size.width
                     )
+                    .listRowBackground(Color.background)
                     .listRowSeparator(.hidden)
                 }
             }

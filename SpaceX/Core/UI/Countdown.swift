@@ -16,6 +16,8 @@ struct Countdown: View {
     
     var body: some View {
         Text("\(value)")
+            .font(.largeTitle)
+            .foregroundStyle(Color.materialSecondary)
             .onReceive(timer) { _ in
                 self.value = countdown() ?? ""
             }

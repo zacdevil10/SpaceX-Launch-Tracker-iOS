@@ -59,10 +59,12 @@ struct LaunchesContent : View {
                             .frame(width: 0)
                             .opacity(0)
                         }
+                        .listRowBackground(Color.background)
                     }
 
                     ForEach(data.dropFirst()) { launch in
                         launchView(launch: launch)
+                            .listRowBackground(Color.background)
                             .listRowSeparator(.hidden)
                     }
                 }
@@ -74,6 +76,7 @@ struct LaunchesContent : View {
                 List {
                     ForEach(data) { launch in
                         launchView(launch: launch)
+                            .listRowBackground(Color.background)
                             .listRowSeparator(.hidden)
                             .onAppear() {
                                 Task {
@@ -84,6 +87,7 @@ struct LaunchesContent : View {
                     
                     if case .success = previous {
                         pagingIndicator
+                            .listRowBackground(Color.background)
                             .listRowSeparator(.hidden)
                     }
                 }

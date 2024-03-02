@@ -18,6 +18,7 @@ struct LaunchDetails: View {
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
                     .padding([.top, .horizontal])
+                    .listRowBackground(Color.background)
             }
             
             Launch(
@@ -28,6 +29,7 @@ struct LaunchDetails: View {
                 isReused: launch.isReused(),
                 landingPad: launch.landingPad()
             )
+            .listRowBackground(Color.background)
             .listRowSeparator(.hidden)
             
             if let holdReason = launch.holdReason, launch.holdReason?.isEmpty == false {
@@ -41,6 +43,7 @@ struct LaunchDetails: View {
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding(.all, 16.0)
                 .outlineCard()
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             }
             
@@ -65,6 +68,7 @@ struct LaunchDetails: View {
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding(.all, 16.0)
                 .outlineCard()
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             }
             
@@ -73,6 +77,7 @@ struct LaunchDetails: View {
                     let webcast = launch.webcast.first
                     Video(image: webcast?.imageUrl, title: webcast?.title)
                         .outlineCard()
+                        .listRowBackground(Color.background)
                         .listRowSeparator(.hidden)
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -81,11 +86,14 @@ struct LaunchDetails: View {
                                 if let title = webcast.title {
                                     Video(image: webcast.imageUrl, title: title)
                                         .outlineCard()
+                                        .listRowBackground(Color.background)
                                         .listRowSeparator(.hidden)
                                 }
                             }
                         }
-                    }.frame(height: 300)
+                    }
+                    .listRowBackground(Color.background)
+                    .frame(height: 300)
                 }
             }
             
@@ -94,11 +102,12 @@ struct LaunchDetails: View {
                     Text("Create event")
                         .frame(maxWidth: .infinity)
                 }
-                .tint(.accentColor)
+                .tint(Color.materialPrimary)
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
                 .controlSize(.large)
                 .frame(maxWidth: .infinity)
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             }
             
@@ -112,6 +121,7 @@ struct LaunchDetails: View {
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding(.all, 16.0)
                 .outlineCard()
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             }
             
@@ -129,6 +139,7 @@ struct LaunchDetails: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .outlineCard()
+                .listRowBackground(Color.background)
                 .listRowSeparator(.hidden)
             }
         }

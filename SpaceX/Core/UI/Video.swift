@@ -23,14 +23,14 @@ struct Video: View {
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(Color.gray.opacity(0.5))
+                        .foregroundColor(Color.onSurface)
                         .aspectRatio(16/9, contentMode: .fit)
                 }.cornerRadius(16)
             } else {
                 Image(systemName: "photo")
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(Color.gray.opacity(0.5))
+                    .foregroundColor(Color.onSurface)
                     .aspectRatio(16/9, contentMode: .fit)
             }
             VStack {
@@ -46,7 +46,7 @@ struct Video: View {
                         Text("Watch")
                             .padding(.horizontal, 16)
                     }
-                    .tint(.accentColor)
+                    .tint(Color.materialPrimary)
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.capsule)
                     .controlSize(.large)

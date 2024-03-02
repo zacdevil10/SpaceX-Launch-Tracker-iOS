@@ -28,7 +28,7 @@ struct Article: View {
                     .aspectRatio(16/9, contentMode: .fit)
                     .frame(maxWidth: .infinity)
                     .clipped()
-                    .foregroundColor(Color.gray.opacity(0.5))
+                    .foregroundColor(Color.onBackground)
             }
             .cornerRadius(16)
             HStack {

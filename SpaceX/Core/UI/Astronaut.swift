@@ -30,7 +30,7 @@ struct Astronaut: View {
                 } else {
                     Image(systemName: "photo.circle")
                         .resizable()
-                        .foregroundColor(Color.onSurfaceVariant)
+                        .foregroundStyle(Color.onSurfaceVariant)
                         .padding(.all, 4.0)
                         .frame(width: width * 0.3)
                 }
