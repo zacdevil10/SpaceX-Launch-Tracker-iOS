@@ -226,7 +226,7 @@ struct FirstStageItem : Identifiable {
     }
 }
 
-struct CrewItem {
+struct CrewItem : Identifiable {
     let id: String
     let name: String?
     let status: CrewStatus

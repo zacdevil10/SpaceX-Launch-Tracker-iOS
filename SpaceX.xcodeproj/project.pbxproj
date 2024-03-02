@@ -43,11 +43,12 @@
 		11AE348C2A86812200A97DAA /* LabelValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348B2A86812200A97DAA /* LabelValue.swift */; };
 		11AE348E2A86819E00A97DAA /* LaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */; };
 		11AE34902A869C7900A97DAA /* LaunchExpanded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */; };
-		11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34912A869CFB00A97DAA /* OutlineCard.swift */; };
+		11AE34922A869CFB00A97DAA /* CardModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34912A869CFB00A97DAA /* CardModifiers.swift */; };
 		11AE34962A86A49400A97DAA /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34952A86A49400A97DAA /* DateUtils.swift */; };
 		11AE349A2A86AB0600A97DAA /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE34992A86AB0600A97DAA /* TabLayout.swift */; };
 		11D668492A91623600B32DF4 /* CoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D668482A91623600B32DF4 /* CoreType.swift */; };
 		11D6684B2A91633400B32DF4 /* CrewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6684A2A91633400B32DF4 /* CrewStatus.swift */; };
+		11FAF7082B93413200949C7C /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAF7072B93413200949C7C /* Astronaut.swift */; };
 		11FAF70A2B934B9A00949C7C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAF7092B934B9A00949C7C /* Theme.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,11 +91,12 @@
 		11AE348B2A86812200A97DAA /* LabelValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValue.swift; sourceTree = "<group>"; };
 		11AE348D2A86819E00A97DAA /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
 		11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchExpanded.swift; sourceTree = "<group>"; };
-		11AE34912A869CFB00A97DAA /* OutlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCard.swift; sourceTree = "<group>"; };
+		11AE34912A869CFB00A97DAA /* CardModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifiers.swift; sourceTree = "<group>"; };
 		11AE34952A86A49400A97DAA /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		11AE34992A86AB0600A97DAA /* TabLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
 		11D668482A91623600B32DF4 /* CoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreType.swift; sourceTree = "<group>"; };
 		11D6684A2A91633400B32DF4 /* CrewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewStatus.swift; sourceTree = "<group>"; };
+		11FAF7072B93413200949C7C /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		11FAF7092B934B9A00949C7C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,12 +261,13 @@
 				11AE34892A867DE100A97DAA /* Launch.swift */,
 				11AE348B2A86812200A97DAA /* LabelValue.swift */,
 				11AE348F2A869C7900A97DAA /* LaunchExpanded.swift */,
-				11AE34912A869CFB00A97DAA /* OutlineCard.swift */,
+				11AE34912A869CFB00A97DAA /* CardModifiers.swift */,
 				11AE34992A86AB0600A97DAA /* TabLayout.swift */,
 				110CB8902A9228A5004E6D1C /* Video.swift */,
 				1163FCB72A9CD32700AD6D99 /* Countdown.swift */,
 				1131E72B2B780340009BF121 /* Article.swift */,
 				118F12F02B796585007F569B /* FirstStage.swift */,
+				11FAF7072B93413200949C7C /* Astronaut.swift */,
 				11FAF7092B934B9A00949C7C /* Theme.swift */,
 			);
 			path = UI;
@@ -416,7 +419,7 @@
 				1146A0FF2A856EA1008D7043 /* Hosts.swift in Sources */,
 				1146A0F12A856CE6008D7043 /* ContentView.swift in Sources */,
 				118E19702B01214800418391 /* LoadState.swift in Sources */,
-				11AE34922A869CFB00A97DAA /* OutlineCard.swift in Sources */,
+				11AE34922A869CFB00A97DAA /* CardModifiers.swift in Sources */,
 				1175670B2A8FD2C3007777F8 /* LaunchDetailsCrew.swift in Sources */,
 				110CB88F2A920C13004E6D1C /* StringUtils.swift in Sources */,
 				1131E72C2B780340009BF121 /* Article.swift in Sources */,
@@ -424,6 +427,7 @@
 				1146A1122A85823F008D7043 /* LaunchResponse.swift in Sources */,
 				11D668492A91623600B32DF4 /* CoreType.swift in Sources */,
 				11AE349A2A86AB0600A97DAA /* TabLayout.swift in Sources */,
+				11FAF7082B93413200949C7C /* Astronaut.swift in Sources */,
 				117567092A8FD2B7007777F8 /* LaunchDetails.swift in Sources */,
 				1146A10E2A8573F9008D7043 /* ArticleResponse.swift in Sources */,
 				1175670D2A8FD2CF007777F8 /* LaunchDetailsCores.swift in Sources */,

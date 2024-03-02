@@ -34,8 +34,8 @@ struct LaunchDetailsContainer: View {
                     LaunchDetailsCores(firstStage: firstStage).tag(1)
                 }
                 
-                if hasCrew {
-                    LaunchDetailsCrew().tag(2)
+                if let crew = launch.crew, hasCrew {
+                    LaunchDetailsCrew(crew: crew).tag(2)
                 }
             }
             

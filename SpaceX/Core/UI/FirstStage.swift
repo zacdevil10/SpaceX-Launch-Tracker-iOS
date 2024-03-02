@@ -22,7 +22,7 @@ struct FirstStage: View {
             Text("B1080")
                 .font(.title)
             Divider()
-            if let description = description{
+            if let description = description {
                 Text(description)
             }
             if landingAttempt {
